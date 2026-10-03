@@ -3,120 +3,130 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>reservAR - Tus clientes reservan online</title>
+<title>reservAR - Gestiona tus reservas simple</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
-body{background:#0c061a;color:#fff;min-height:100vh;overflow-x:hidden}
-nav{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;margin:12px;background:rgba(40,20,70,0.6);border:1px solid rgba(140,100,255,0.2);border-radius:14px;backdrop-filter:blur(10px)}
-.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:22px}
-.logo-icon{width:36px;height:36px;background:#fff;border-radius:8px;display:grid;place-items:center;color:#6d28d9;font-size:20px}
-.nav-links{display:flex;gap:18px;font-size:13px;opacity:0.7}
-.btn-login{border:1px solid #fff;border-radius:20px;padding:6px 14px;font-size:12px;background:transparent;color:#fff}
-.hero{text-align:center;padding:24px 16px 12px}
-.hero h1{font-size:42px;font-weight:800;letter-spacing:-1px}
-.hero p{color:#b8a0ff;font-size:15px;margin-top:6px}
-.cards{display:flex;flex-direction:column;gap:16px;padding:16px}
-.card{border-radius:18px;padding:14px;position:relative;overflow:hidden;cursor:pointer;transition:transform .2s}
-.card:active{transform:scale(0.98)}
-.card-locales{background:linear-gradient(135deg,#7c3aed,#4f2bd9)}
-.card-clientes{background:linear-gradient(135deg,#93c5fd,#60a5fa);color:#1e1b4b}
-.badge-top{display:inline-block;background:rgba(255,255,255,0.25);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:10px}
-.card-clientes .badge-top{background:rgba(255,255,255,0.7);color:#1e3a8a}
-.img-wrap{width:100%;height:150px;border-radius:12px;overflow:hidden;background:#0003;margin-bottom:12px}
-.img-wrap img{width:100%;height:100%;object-fit:cover}
-.btn-card{width:100%;padding:12px;border-radius:10px;border:none;font-weight:700;font-size:14px;margin-bottom:12px}
-.card-locales .btn-card{background:#fff;color:#4f2bd9}
-.card-clientes .btn-card{background:#1e40af;color:#fff}
-.checks{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:13px}
-.checks li::before{content:"✔";display:inline-grid;place-items:center;width:18px;height:18px;background:#22c55e;color:#fff;border-radius:50%;font-size:10px;margin-right:8px}
-.planes{text-align:center;padding:20px 16px 6px}
-.planes h2{font-size:26px;font-weight:800}
-.planes p{color:#b8a0ff;font-size:13px;margin-top:4px}
-.promo-tag{display:inline-flex;align-items:center;gap:6px;background:#fde047;color:#422006;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700;margin:12px auto}
-.prices{display:flex;flex-direction:column;gap:14px;padding:0 16px 20px}
-.price-card{background:#f5f3ff;color:#1e1b4b;border-radius:16px;padding:18px;text-align:center;position:relative;border:2px solid transparent}
-.price-card.medio{background:#2e1a8a;color:#fff;border-color:#fde047;transform:scale(1.02)}
-.price-card.medio .price{color:#fff}
-.recom{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#fde047;color:#422006;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px}
-.price-card h3{font-size:16px;font-weight:700}
-.price{font-size:36px;font-weight:800;color:#2e1a8a;margin:6px 0}
-.price small{font-size:13px;font-weight:600}
-.desc{font-size:12px;opacity:0.7;margin-bottom:12px}
-.feats{text-align:left;list-style:none;display:flex;flex-direction:column;gap:8px;font-size:12px;font-weight:600;margin-bottom:14px}
-.feats li::before{content:"✔";display:inline-grid;place-items:center;width:16px;height:16px;background:#22c55e;color:#fff;border-radius:50%;font-size:9px;margin-right:8px}
-.btn-price{width:100%;padding:10px;border-radius:10px;border:1.5px solid #6d28d9;background:#fff;color:#6d28d9;font-weight:700;font-size:13px}
-.medio .btn-price{background:#fde047;border-color:#fde047;color:#1e1b4b}
-footer{text-align:center;padding:14px;font-size:10px;color:#a78bfa;background:rgba(40,20,70,0.6);margin:0 16px 16px;border-radius:12px}
-a{color:inherit;text-decoration:none}
-@media(min-width:700px){
-.cards{flex-direction:row;max-width:900px;margin:0 auto}
-.prices{flex-direction:row;max-width:900px;margin:0 auto}
-.price-card{flex:1}
+body{background:#f8f7ff;color:#111827}
+nav{width:95%;max-width:1300px;margin:12px auto;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:10px 18px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:12px;z-index:50;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
+.logo{font-weight:800;font-size:22px;display:flex;align-items:center;gap:8px}
+.logo span{background:#5b21b6;color:#fff;width:34px;height:34px;display:grid;place-items:center;border-radius:8px}
+.menu{display:flex;gap:22px;font-size:14px;font-weight:600;opacity:0.7}
+.nav-btns{display:flex;gap:10px}
+.btn-ghost{border:1px solid #d1d5db;background:#e5e7eb;padding:8px 14px;border-radius:8px;font-weight:600;font-size:13px}
+.btn-violet{background:#8b5cf6;color:#fff;border:none;padding:8px 16px;border-radius:8px;font-weight:700;font-size:13px}
+.hero{text-align:center;padding:36px 16px 18px;max-width:900px;margin:0 auto}
+.hero h1{font-size:32px;font-weight:800;line-height:1.1}
+.hero p{margin-top:10px;font-size:14px;color:#6b7280}
+.cards{width:95%;max-width:1300px;margin:0 auto;display:flex;flex-direction:column;gap:16px;padding:10px 0 20px}
+.card{border-radius:16px;padding:18px;position:relative;cursor:pointer;display:flex;flex-direction:column;gap:12px;text-decoration:none;transition:transform .15s;box-shadow:0 8px 24px rgba(0,0,0,0.08)}
+.card:active{transform:scale(0.99)}
+.card-local{background:#8b5cf6;color:#fff}
+.card-client{background:#60a5fa;color:#fff}
+.top-row{display:flex;justify-content:space-between;align-items:center}
+.icon{width:38px;height:38px;background:rgba(255,255,255,0.25);border-radius:50%;display:grid;place-items:center;font-size:18px}
+.clic{font-size:11px;background:#fff;color:#5b21b6;padding:4px 10px;border-radius:20px;font-weight:600}
+.card-client .clic{color:#2563eb}
+.card h2{font-size:28px;font-weight:800;letter-spacing:-0.5px}
+.card p{font-size:14px;opacity:0.9;line-height:1.3;max-width:85%}
+.btn-card{background:#fff;color:#5b21b6;border:none;border-radius:8px;padding:12px 14px;font-weight:700;font-size:15px;display:flex;justify-content:space-between;align-items:center;width:100%}
+.card-client .btn-card{color:#2563eb}
+.link-bottom{font-size:12px;font-weight:600;opacity:0.9;text-align:center}
+.prices-section{background:#e8efff;padding:22px 0 28px}
+.prices-title{text-align:center;padding:0 16px 16px}
+.prices-title h2{font-size:24px;font-weight:800}
+.prices-title p{font-size:13px;color:#6b7280;margin-top:4px}
+.grid{width:95%;max-width:1300px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.pcard{background:#fff;border-radius:12px;padding:16px;border:1.5px solid #e5e7eb;position:relative}
+.pcard.mid{border-color:#5b21b6;border-width:2px;transform:scale(1.01)}
+.badge-plan{display:inline-block;background:#f3f4f6;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700;margin-bottom:8px}
+.ahorro{display:inline-block;background:#fde047;color:#422006;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:700;float:right}
+.old{font-size:14px;color:#9ca3af;text-decoration:line-through}
+.new{font-size:22px;font-weight:800;color:#5b21b6}
+.feat{list-style:none;margin:10px 0 14px;display:flex;flex-direction:column;gap:5px;font-size:12px}
+.feat li::before{content:"✔";color:#22c55e;font-weight:700;margin-right:6px}
+.btn-plan{width:100%;padding:10px;border-radius:8px;border:1.5px solid #5b21b6;background:#fff;color:#5b21b6;font-weight:700;font-size:13px}
+.pcard.mid .btn-plan{background:#5b21b6;color:#fff;border-color:#5b21b6}
+.rec{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#5b21b6;color:#fff;font-size:11px;font-weight:700;padding:4px 12px;border-radius:12px}
+.note{text-align:center;font-size:11px;color:#6b7280;margin-top:16px;padding:0 16px}
+footer{width:95%;max-width:1300px;margin:0 auto;padding:18px 0;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font-size:12px;color:#6b7280;border-top:1px solid #e5e7eb;margin-top:10px}
+@media(min-width:800px){
+.cards{flex-direction:row}
+.grid{flex-direction:row}
+.pcard{flex:1}
+.hero h1{font-size:36px}
 }
 </style>
 </head>
 <body>
 <nav>
-<div class="logo"><div class="logo-icon">📅</div>reservAR</div>
-<div class="nav-links"><span>Inicio</span><span>Como Funciona</span><span>Precios</span><span>Contacto</span></div>
-<button class="btn-login">Iniciar sesión</button>
+<div class="logo"><span>✓</span>reservAR</div>
+<div class="menu"><span>Inicio</span><span>Funciones</span><span>Precios</span><span>Soporte</span></div>
+<div class="nav-btns"><button class="btn-ghost" onclick="openLogin()">Iniciar sesión</button><button class="btn-violet" onclick="location.href='./local.html'">Empezar ahora</button></div>
 </nav>
 <div class="hero">
-<h1>reservAR</h1>
-<p>Tus clientes reservan online, vos solo atendes</p>
+<h1>Gestioná tus reservas de forma simple y profesional</h1>
+<p>Todo lo que necesitás para gestionar tu local o reservar turnos, en un solo lugar.</p>
 </div>
 <div class="cards">
-<a href="./local.html" class="card card-locales">
-<span class="badge-top">LOCALES</span>
-<div class="img-wrap"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=600" alt="barberia"></div>
-<button class="btn-card">Soy Local - Crear cuenta</button>
-<ul class="checks"><li>Gestioná turnos 24/7</li><li>Notificaciones automáticas</li><li>Panel de estadísticas</li></ul>
+<a href="./local.html" class="card card-local">
+<div class="top-row"><div class="icon">🏪</div><span class="clic">Clic para ir</span></div>
+<h2>LOCALES</h2>
+<p>Administrá tu local, servicios, horarios y equipo</p>
+<button class="btn-card"><span>Crear mi local gratis</span><span>→</span></button>
+<div class="link-bottom">→ Acceso al panel de local</div>
 </a>
-<a href="./cliente.html" class="card card-clientes">
-<span class="badge-top">CLIENTES</span>
-<div class="img-wrap"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=600" alt="cliente"></div>
-<button class="btn-card">Soy Cliente - Reservar</button>
-<ul class="checks"><li>Reservá en minutos</li><li>Recordatorios por whatsapp</li><li>Elegí tu barbero favorito</li></ul>
+<a href="./cliente.html" class="card card-client">
+<div class="top-row"><div class="icon">👤</div><span class="clic">Clic para ir</span></div>
+<h2>CLIENTES</h2>
+<p>Reservá turnos fácil y rápido</p>
+<button class="btn-card"><span>Reservar turno ahora</span><span>→</span></button>
+<div class="link-bottom">→ Acceso al panel de clientes</div>
 </a>
 </div>
-<div class="planes">
-<h2>Planes y Precios</h2>
-<p>Elegí el plan que mejor se adapta a tu negocio</p>
-<div class="promo-tag">⭐ 20% OFF - Promo Lanzamiento - Quedan 30</div>
+<div class="prices-section">
+<div class="prices-title">
+<h2>Planes flexibles para crecer</h2>
+<p>Aprovechá la promo lanzamiento - Quedan 30 con promo</p>
 </div>
-<div class="prices">
-<div class="price-card">
-<h3>Basico</h3>
-<div class="price">$5.990<small>/mes</small></div>
-<div class="desc">Para locales que comienzan</div>
-<ul class="feats"><li>Hasta 50 reservas</li><li>Agenda básica</li><li>Soporte por email</li></ul>
-<button class="btn-price">Empezar ahora</button>
+<div class="grid">
+<div class="pcard">
+<span class="badge-plan">Básico</span><span class="ahorro">⭐ Ahorrás $3.000</span>
+<div class="old">$8.990</div>
+<div class="new">$5.990</div>
+<ul class="feat"><li>Hasta 100 reservas/mes</li><li>1 local</li><li>Soporte por email</li><li>Panel básico</li></ul>
+<button class="btn-plan" onclick="location.href='./local.html'">Elegir Plan</button>
 </div>
-<div class="price-card medio">
-<div class="recom">RECOMENDADO</div>
-<h3>Medio</h3>
-<div class="price">$9.990<small>/mes</small></div>
-<div class="desc">Para locales en crecimiento</div>
-<ul class="feats"><li>Hasta 200 reservas</li><li>Recordatorios SMS</li><li>Estadísticas</li></ul>
-<button class="btn-price">Empezar ahora</button>
+<div class="pcard mid">
+<div class="rec">Más elegido</div>
+<span class="badge-plan">Profesional</span><span class="ahorro">⭐ Ahorrás $3.000</span>
+<div class="old">$11.990</div>
+<div class="new">$8.990</div>
+<ul class="feat"><li>Hasta 500 reservas/mes</li><li>Hasta 3 locales</li><li>Recordatorios automáticos</li><li>Soporte prioritario</li><li>Analíticas y reportes</li></ul>
+<button class="btn-plan" onclick="location.href='./local.html'">Elegir Plan</button>
 </div>
-<div class="price-card">
-<h3>Premium</h3>
-<div class="price">$14.990<small>/mes</small></div>
-<div class="desc">Para múltiples sucursales</div>
-<ul class="feats"><li>Reservas ilimitadas</li><li>Multi-sucursal</li><li>Soporte prioritario</li></ul>
-<button class="btn-price">Empezar ahora</button>
+<div class="pcard">
+<span class="badge-plan">Avanzado</span><span class="ahorro">⭐ Ahorrás $3.000</span>
+<div class="old">$17.990</div>
+<div class="new">$14.990</div>
+<ul class="feat"><li>Reservas ilimitadas</li><li>Locales ilimitados</li><li>API e integraciones</li><li>Soporte 24/7</li><li>Personalización avanzada</li></ul>
+<button class="btn-plan" onclick="location.href='./local.html'">Elegir Plan</button>
 </div>
 </div>
-<footer>© 2024 reservAR • Soporte • Términos • Privacidad • contacto@reservar.com</footer>
+<div class="note">Todos los planes incluyen 14 días de prueba gratis • Sin compromiso • Cancelá cuando quieras</div>
+</div>
+<footer>
+<span>reservAR © 2024 — Todos los derechos reservados</span>
+<span>Términos Privacidad Contacto Ayuda</span>
+</footer>
 <script>
-document.querySelectorAll('.card, .btn-price').forEach(b=>{
-b.addEventListener('click',e=>{
-if(b.getAttribute('href')?.includes('local.html')||b.textContent.includes('Local')){e.preventDefault();location.href='./local.html'}
-if(b.getAttribute('href')?.includes('cliente.html')||b.textContent.includes('Cliente')||b.textContent.includes('Reservar')){if(b.classList.contains('card-clientes')||b.textContent.includes('Cliente')){e.preventDefault();location.href='./cliente.html'}}
-})
-})
+function openLogin(){
+let opt=prompt("¿Qué sos? Escribí: LOCAL o CLIENTE");
+if(!opt)return;
+opt=opt.toLowerCase();
+if(opt.includes("local"))location.href="./local.html";
+else if(opt.includes("client"))location.href="./cliente.html";
+}
 </script>
 </body>
 </html>
