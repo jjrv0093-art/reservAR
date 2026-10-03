@@ -6,20 +6,23 @@
 <title>reservAR - tu lugar, tu momento</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;scroll-behavior:smooth}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
 body{background:#0c061a;color:#fff;min-height:100vh;overflow-x:hidden;display:flex;flex-direction:column;align-items:center}
 nav{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;margin:12px auto;background:rgba(40,20,70,0.6);border:1px solid rgba(140,100,255,0.2);border-radius:14px;backdrop-filter:blur(10px);width:95%;max-width:1300px;gap:12px;flex-wrap:wrap;position:sticky;top:12px;z-index:50}
 .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:22px;white-space:nowrap}
 .logo-icon{width:36px;height:36px;background:#fff;border-radius:8px;display:grid;place-items:center;color:#6d28d9;font-size:20px}
 .nav-links{display:flex;gap:18px;font-size:13px;opacity:0.7;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
 .nav-links::-webkit-scrollbar{display:none}
-.nav-links span{cursor:pointer}
-.nav-links span:hover{opacity:1;color:#fff}
+.nav-links span{cursor:pointer;padding:6px 10px;border-radius:20px;transition:.2s}
+.nav-links span.active{background:#fff;color:#4f2bd9;opacity:1;font-weight:700}
 .btn-login{border:1px solid #fff;border-radius:20px;padding:6px 14px;font-size:12px;background:transparent;color:#fff;white-space:nowrap;cursor:pointer}
-.hero{text-align:center;padding:24px 16px 12px;max-width:1300px;margin:0 auto;width:95%}
+.sec{width:95%;max-width:1300px;margin:0 auto;display:none;flex-direction:column;align-items:center;animation:fade .25s ease}
+.sec.active{display:flex}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.hero{text-align:center;padding:24px 16px 12px;width:100%}
 .hero h1{font-size:42px;font-weight:800;letter-spacing:-1px}
 .hero p{color:#b8a0ff;font-size:15px;margin-top:6px}
-.cards{display:flex;flex-direction:column;gap:16px;padding:16px;width:95%;max-width:1300px;margin:0 auto;justify-content:center}
+.cards{display:flex;flex-direction:column;gap:16px;padding:16px;width:100%;justify-content:center}
 .card{border-radius:18px;padding:14px;position:relative;overflow:hidden;cursor:pointer;transition:transform .2s;text-decoration:none;flex:1;min-width:300px}
 .card:active{transform:scale(0.98)}
 .card-locales{background:linear-gradient(135deg,#7c3aed,#4f2bd9)}
@@ -33,19 +36,19 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:12px 1
 .card-clientes .btn-card{background:#1e40af;color:#fff}
 .checks{list-style:none;display:flex;flex-direction:column;gap:6px;font-size:13px}
 .checks li::before{content:"✔";display:inline-grid;place-items:center;width:18px;height:18px;background:#22c55e;color:#fff;border-radius:50%;font-size:10px;margin-right:8px}
-.como{background:rgba(40,20,70,0.4);border:1px solid rgba(140,100,255,0.15);border-radius:18px;padding:22px;width:95%;max-width:1300px;margin:16px auto;text-align:center}
+.como{background:rgba(40,20,70,0.4);border:1px solid rgba(140,100,255,0.15);border-radius:18px;padding:22px;width:100%;margin:16px auto;text-align:center}
 .como h2{font-size:26px;font-weight:800;margin-bottom:6px}
 .como p.sub{color:#b8a0ff;font-size:13px;margin-bottom:16px}
-.steps{display:flex;flex-direction:column;gap:14px;text-align:left}
+.steps{display:flex;flex-direction:column;gap:14px;text-align:left;width:100%}
 .step{background:#f5f3ff;color:#1e1b4b;border-radius:14px;padding:14px;display:flex;gap:12px;align-items:flex-start}
 .step-num{width:32px;height:32px;background:#7c3aed;color:#fff;border-radius:8px;display:grid;place-items:center;font-weight:800;font-size:14px;flex-shrink:0}
 .step h4{font-size:14px;font-weight:700}
 .step p{font-size:12px;opacity:0.7;margin-top:2px}
-.planes{text-align:center;padding:20px 16px 6px;max-width:1300px;margin:0 auto;width:95%}
+.planes{text-align:center;padding:20px 16px 6px;width:100%}
 .planes h2{font-size:26px;font-weight:800}
 .planes p{color:#b8a0ff;font-size:13px;margin-top:4px}
 .promo-tag{display:inline-flex;align-items:center;gap:6px;background:#fde047;color:#422006;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700;margin:12px auto}
-.prices{display:flex;flex-direction:column;gap:14px;padding:0 16px 20px;width:95%;max-width:1300px;margin:0 auto;justify-content:center}
+.prices{display:flex;flex-direction:column;gap:14px;padding:0 0 20px;width:100%;justify-content:center}
 .price-card{background:#f5f3ff;color:#1e1b4b;border-radius:16px;padding:18px;text-align:center;position:relative;border:2px solid transparent;flex:1;min-width:280px}
 .price-card.medio{background:#2e1a8a;color:#fff;border-color:#fde047;transform:scale(1.02)}
 .price-card.medio .price{color:#fff}
@@ -60,13 +63,13 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:12px 1
 .feats li::before{content:"✔";display:inline-grid;place-items:center;width:16px;height:16px;background:#22c55e;color:#fff;border-radius:50%;font-size:9px;margin-right:8px}
 .btn-price{width:100%;padding:10px;border-radius:10px;border:1.5px solid #6d28d9;background:#fff;color:#6d28d9;font-weight:700;font-size:13px;cursor:pointer}
 .medio .btn-price{background:#fde047;border-color:#fde047;color:#1e1b4b}
-.contacto{background:linear-gradient(135deg,#1a1040,#2e1a8a);border:1px solid rgba(140,100,255,0.2);border-radius:18px;padding:22px;width:95%;max-width:1300px;margin:16px auto;text-align:center}
+.contacto{background:linear-gradient(135deg,#1a1040,#2e1a8a);border:1px solid rgba(140,100,255,0.2);border-radius:18px;padding:22px;width:100%;margin:16px auto;text-align:center}
 .contacto h2{font-size:24px;font-weight:800}
 .contacto p{color:#b8a0ff;font-size:13px;margin:6px 0 14px}
-.contacto-grid{display:flex;flex-direction:column;gap:10px}
+.contacto-grid{display:flex;flex-direction:column;gap:10px;width:100%}
 .c-item{background:rgba(255,255,255,0.08);border-radius:12px;padding:12px;font-size:13px;text-align:left;display:flex;justify-content:space-between;align-items:center}
 .c-item a{color:#fde047;font-weight:700}
-footer{text-align:center;padding:14px;font-size:10px;color:#a78bfa;background:rgba(40,20,70,0.6);margin:0 auto 16px;border-radius:12px;width:95%;max-width:1300px}
+footer{text-align:center;padding:14px;font-size:10px;color:#a78bfa;background:rgba(40,20,70,0.6);margin:16px auto;border-radius:12px;width:95%;max-width:1300px}
 a{color:inherit;text-decoration:none}
 .modal{position:fixed;inset:0;background:rgba(5,2,15,0.8);backdrop-filter:blur(8px);display:none;place-items:center;z-index:100;padding:16px}
 .modal.open{display:grid}
@@ -75,7 +78,7 @@ a{color:inherit;text-decoration:none}
 .modal-box p{font-size:12px;color:#a78bfa;margin-bottom:16px}
 .btn-modal{width:100%;padding:14px;border-radius:12px;border:none;font-weight:800;font-size:15px;margin-bottom:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px}
 .btn-local{background:#7c3aed;color:#fff}
-  .btn-cliente{background:#bfdbfe;color:#1e40af}
+.btn-cliente{background:#bfdbfe;color:#1e40af}
 .btn-close{background:transparent;color:#a78bfa;border:1px solid rgba(255,255,255,0.15);font-size:12px;padding:8px;margin-top:6px}
 @media(min-width:900px){
 .cards{flex-direction:row}
@@ -95,10 +98,17 @@ nav{padding:10px 12px}
 <body>
 <nav>
 <div class="logo"><div class="logo-icon">📅</div>reservAR</div>
-<div class="nav-links"><span onclick="go('inicio')">Inicio</span><span onclick="go('como-funciona')">Como Funciona</span><span onclick="go('planes')">Planes</span><span onclick="go('contacto')">Contacto</span></div>
+<div class="nav-links">
+<span id="tab-inicio" class="active" onclick="showTab('inicio')">Inicio</span>
+<span id="tab-como" onclick="showTab('como')">Como Funciona</span>
+<span id="tab-planes" onclick="showTab('planes')">Planes</span>
+<span id="tab-contacto" onclick="showTab('contacto')">Contacto</span>
+</div>
 <button class="btn-login" onclick="openLogin()">Iniciar sesión</button>
 </nav>
-<div id="inicio" class="hero">
+
+<div id="sec-inicio" class="sec active">
+<div class="hero">
 <h1>reservAR</h1>
 <p>tu lugar, tu momento.</p>
 </div>
@@ -116,7 +126,10 @@ nav{padding:10px 12px}
 <ul class="checks"><li>Reservá en minutos</li><li>Recordatorios por whatsapp</li><li>Elegí tu barbero favorito</li></ul>
 </a>
 </div>
-<div id="como-funciona" class="como">
+</div>
+
+<div id="sec-como" class="sec">
+<div class="como">
 <h2>Como Funciona</h2>
 <p class="sub">En 3 pasos ya estás reservando</p>
 <div class="steps">
@@ -125,7 +138,10 @@ nav{padding:10px 12px}
 <div class="step"><div class="step-num">3</div><div><h4>Recibí reservas</h4><p>Gestioná todo desde el panel, sin llamadas ni mensajes perdidos</p></div></div>
 </div>
 </div>
-<div id="planes" class="planes">
+</div>
+
+<div id="sec-planes" class="sec">
+<div class="planes">
 <h2>Planes y Precios</h2>
 <p>Elegí el plan que mejor se adapta a tu negocio</p>
 <div class="promo-tag">⭐ 20% OFF - Promo Lanzamiento - Quedan 30</div>
@@ -157,7 +173,10 @@ nav{padding:10px 12px}
 <button class="btn-price" onclick="location.href='./local.html'">Empezar ahora</button>
 </div>
 </div>
-<div id="contacto" class="contacto">
+</div>
+
+<div id="sec-contacto" class="sec">
+<div class="contacto">
 <h2>Contacto</h2>
 <p>¿Tenés dudas? Escribinos, te respondemos en el día</p>
 <div class="contacto-grid">
@@ -166,6 +185,8 @@ nav{padding:10px 12px}
 <div class="c-item"><span>📍 Instagram</span><a href="#">@reservAR.app</a></div>
 </div>
 </div>
+</div>
+
 <footer>© 2024 reservAR • Soporte • Términos • Privacidad • contacto@reservar.com</footer>
 <div id="modalLogin" class="modal" onclick="if(event.target==this)closeLogin()">
 <div class="modal-box">
@@ -177,9 +198,15 @@ nav{padding:10px 12px}
 </div>
 </div>
 <script>
+function showTab(n){
+document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
+document.querySelectorAll('.nav-links span').forEach(s=>s.classList.remove('active'));
+document.getElementById('sec-'+n).classList.add('active');
+document.getElementById('tab-'+n).classList.add('active');
+window.scrollTo({top:0,behavior:'smooth'});
+}
 function openLogin(){document.getElementById('modalLogin').classList.add('open')}
 function closeLogin(){document.getElementById('modalLogin').classList.remove('open')}
-function go(id){document.getElementById(id).scrollIntoView({behavior:'smooth'})}
 </script>
 </body>
 </html>
