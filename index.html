@@ -12,7 +12,6 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:12px 1
 .logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:22px;white-space:nowrap}
 .logo-icon{width:36px;height:36px;background:#fff;border-radius:8px;display:grid;place-items:center;color:#6d28d9;font-size:20px}
 .nav-links{display:flex;gap:18px;font-size:13px;opacity:0.7;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
-.nav-links::-webkit-scrollbar{display:none}
 .nav-links span{cursor:pointer;padding:6px 10px;border-radius:20px;transition:.2s}
 .nav-links span.active{background:#fff;color:#4f2bd9;opacity:1;font-weight:700}
 .btn-login{border:1px solid #fff;border-radius:20px;padding:6px 14px;font-size:12px;background:transparent;color:#fff;white-space:nowrap;cursor:pointer}
@@ -29,8 +28,11 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:12px 1
 .card-clientes{background:linear-gradient(135deg,#93c5fd,#60a5fa);color:#1e1b4b}
 .badge-top{display:inline-block;background:rgba(255,255,255,0.25);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:10px}
 .card-clientes .badge-top{background:rgba(255,255,255,0.7);color:#1e3a8a}
-.img-wrap{width:100%;height:180px;border-radius:12px;overflow:hidden;background:#0003;margin-bottom:12px}
-.img-wrap img{width:100%;height:100%;object-fit:cover}
+.img-wrap{width:100%;height:180px;border-radius:12px;overflow:hidden;background:#0003;margin-bottom:12px;position:relative}
+.img-wrap .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease}
+.img-wrap .slide.active{opacity:1}
+.seguridad{background:rgba(255,255,255,0.15);border:1px dashed rgba(255,255,255,0.4);border-radius:10px;padding:8px 10px;font-size:11px;font-weight:700;margin-bottom:12px;display:flex;gap:6px;align-items:center}
+.seguridad span{font-size:14px}
 .btn-card{width:100%;padding:12px;border-radius:10px;border:none;font-weight:700;font-size:14px;margin-bottom:12px;cursor:pointer}
 .card-locales .btn-card{background:#fff;color:#4f2bd9}
 .card-clientes .btn-card{background:#1e40af;color:#fff}
@@ -48,11 +50,13 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:12px 1
 .planes h2{font-size:26px;font-weight:800}
 .planes p{color:#b8a0ff;font-size:13px;margin-top:4px}
 .promo-tag{display:inline-flex;align-items:center;gap:6px;background:#fde047;color:#422006;padding:5px 12px;border-radius:20px;font-size:11px;font-weight:700;margin:12px auto}
-.prices{display:flex;flex-direction:column;gap:14px;padding:0 0 20px;width:100%;justify-content:center}
+.prices{display:flex;flex-direction:column;gap:14px;padding:0 0 20px;width:100%;justify-content:center;flex-wrap:wrap}
 .price-card{background:#f5f3ff;color:#1e1b4b;border-radius:16px;padding:18px;text-align:center;position:relative;border:2px solid transparent;flex:1;min-width:280px}
 .price-card.medio{background:#2e1a8a;color:#fff;border-color:#fde047;transform:scale(1.02)}
+.price-card.casa{border-color:#22c55e;background:#f0fdf4}
 .price-card.medio .price{color:#fff}
 .recom{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#fde047;color:#422006;font-size:10px;font-weight:800;padding:3px 10px;border-radius:12px}
+.recom-green{background:#22c55e;color:#fff}
 .price-card h3{font-size:16px;font-weight:700}
 .old{font-size:13px;color:#9ca3af;text-decoration:line-through}
 .price{font-size:36px;font-weight:800;color:#2e1a8a;margin:6px 0}
@@ -63,6 +67,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:12px 1
 .feats li::before{content:"✔";display:inline-grid;place-items:center;width:16px;height:16px;background:#22c55e;color:#fff;border-radius:50%;font-size:9px;margin-right:8px}
 .btn-price{width:100%;padding:10px;border-radius:10px;border:1.5px solid #6d28d9;background:#fff;color:#6d28d9;font-weight:700;font-size:13px;cursor:pointer}
 .medio .btn-price{background:#fde047;border-color:#fde047;color:#1e1b4b}
+.casa .btn-price{background:#22c55e;border-color:#22c55e;color:#fff}
 .contacto{background:linear-gradient(135deg,#1a1040,#2e1a8a);border:1px solid rgba(140,100,255,0.2);border-radius:18px;padding:22px;width:100%;margin:16px auto;text-align:center}
 .contacto h2{font-size:24px;font-weight:800}
 .contacto p{color:#b8a0ff;font-size:13px;margin:6px 0 14px}
@@ -80,19 +85,8 @@ a{color:inherit;text-decoration:none}
 .btn-local{background:#7c3aed;color:#fff}
 .btn-cliente{background:#bfdbfe;color:#1e40af}
 .btn-close{background:transparent;color:#a78bfa;border:1px solid rgba(255,255,255,0.15);font-size:12px;padding:8px;margin-top:6px}
-@media(min-width:900px){
-.cards{flex-direction:row}
-.prices{flex-direction:row}
-.steps{flex-direction:row}
-.step{flex:1}
-.contacto-grid{flex-direction:row}
-.c-item{flex:1}
-}
-@media(max-width:700px){
-nav{padding:10px 12px}
-.nav-links{width:100%;order:3;gap:12px;font-size:12px;justify-content:space-between;padding-top:6px;border-top:1px solid rgba(255,255,255,0.1)}
-.hero h1{font-size:32px}
-}
+@media(min-width:900px){.cards{flex-direction:row}.prices{flex-direction:row}.steps{flex-direction:row}.step{flex:1}.contacto-grid{flex-direction:row}.c-item{flex:1}}
+@media(max-width:700px){nav{padding:10px 12px}.nav-links{width:100%;order:3;gap:12px;font-size:12px;justify-content:space-between;padding-top:6px;border-top:1px solid rgba(255,255,255,0.1)}.hero h1{font-size:32px}}
 </style>
 </head>
 <body>
@@ -106,36 +100,36 @@ nav{padding:10px 12px}
 </div>
 <button class="btn-login" onclick="openLogin()">Iniciar sesión</button>
 </nav>
-
 <div id="sec-inicio" class="sec active">
-<div class="hero">
-<h1>reservAR</h1>
-<p>tu lugar, tu momento.</p>
-</div>
+<div class="hero"><h1>reservAR</h1><p>tu lugar, tu momento.</p></div>
 <div class="cards">
-<a href="./local.html" class="card card-locales">
+<div class="card card-locales">
 <span class="badge-top">LOCALES</span>
-<div class="img-wrap"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=600" alt="barberia"></div>
-<button class="btn-card">Soy Local - Crear cuenta</button>
-<ul class="checks"><li>Gestioná turnos 24/7</li><li>Notificaciones automáticas</li><li>Panel de estadísticas</li></ul>
-</a>
+<div class="img-wrap" id="wrap-locales">
+<img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=600" class="slide active" alt="barberia">
+<img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=600" class="slide" alt="peluqueria">
+<img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa2b355?q=80&w=600" class="slide" alt="estudio casa">
+</div>
+<div class="seguridad"><span>🛡️</span> Tu seguridad nos importa. Solicita DNI en tus reservas y sentite más seguro (opcional)</div>
+<button class="btn-card" onclick="location.href='./local.html'">Soy Local - Crear cuenta</button>
+<ul class="checks"><li>Gestioná turnos 24/7</li><li>Notificaciones automáticas</li><li>Opción pedir DNI para seguridad</li></ul>
+</div>
 <a href="./cliente.html" class="card card-clientes">
 <span class="badge-top">CLIENTES</span>
-<div class="img-wrap"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=600" alt="cliente"></div>
+<div class="img-wrap"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=600" style="width:100%;height:object-fit:cover" alt="cliente"></div>
 <button class="btn-card">Soy Cliente - Reservar</button>
 <ul class="checks"><li>Reservá en minutos</li><li>Recordatorios por whatsapp</li><li>Elegí tu barbero favorito</li></ul>
 </a>
 </div>
 </div>
-
 <div id="sec-como" class="sec">
 <div class="como">
 <h2>Como Funciona</h2>
-<p class="sub">En 3 pasos ya estás reservando</p>
+<p class="sub">Seguridad ante todo, vos tenés el control</p>
 <div class="steps">
-<div class="step"><div class="step-num">1</div><div><h4>Creá tu local</h4><p>Registrá tu barbería, peluquería o estudio en 2 minutos</p></div></div>
-<div class="step"><div class="step-num">2</div><div><h4>Compartí tu link</h4><p>Tus clientes reservan online desde tu Instagram o WhatsApp</p></div></div>
-<div class="step"><div class="step-num">3</div><div><h4>Recibí reservas</h4><p>Gestioná todo desde el panel, sin llamadas ni mensajes perdidos</p></div></div>
+<div class="step"><div class="step-num">1</div><div><h4>Creá tu local</h4><p>Registrá tu barbería o tu espacio en casa. Activa la opción "Solicitar DNI" si querés mayor seguridad. 100% opcional, vos decidís.</p></div></div>
+<div class="step"><div class="step-num">2</div><div><h4>Compartí tu link</h4><p>Tus clientes reservan online. Si activaste DNI, se lo pedimos automáticamente al reservar.</p></div></div>
+<div class="step"><div class="step-num">3</div><div><h4>Recibí reservas seguras</h4><p>Sabés quién viene a tu local o a tu casa. Más tranquilidad para vos que trabajás desde tu hogar.</p></div></div>
 </div>
 </div>
 </div>
@@ -147,12 +141,20 @@ nav{padding:10px 12px}
 <div class="promo-tag">⭐ 20% OFF - Promo Lanzamiento - Quedan 30</div>
 </div>
 <div class="prices">
+<div class="price-card casa">
+<div class="recom recom-green">IDEAL CASA</div>
+<h3>Casa</h3>
+<div class="price">$100<small> por reserva</small></div>
+<div class="desc">Para los que trabajan desde su hogar</div>
+<ul class="feats"><li>Pago por uso, sin mes</li><li>Opción pedir DNI incluida</li><li>Ideal para freelance / casa</li><li>Seguridad garantizada</li></ul>
+<button class="btn-price" onclick="location.href='./local.html'">Empezar con Casa</button>
+</div>
 <div class="price-card">
 <h3>Basico</h3>
 <div class="old">$8.990</div>
 <div class="price">$5.990<small>/mes</small> <span class="ahorro">Ahorrás $3.000</span></div>
 <div class="desc">Para locales que comienzan</div>
-<ul class="feats"><li>Hasta 50 reservas</li><li>Agenda básica</li><li>Soporte por email</li></ul>
+<ul class="feats"><li>Hasta 50 reservas</li><li>Agenda básica</li><li>Opción DNI opcional</li></ul>
 <button class="btn-price" onclick="location.href='./local.html'">Empezar ahora</button>
 </div>
 <div class="price-card medio">
@@ -161,7 +163,7 @@ nav{padding:10px 12px}
 <div class="old">$11.990</div>
 <div class="price">$8.990<small>/mes</small> <span class="ahorro">Ahorrás $3.000</span></div>
 <div class="desc">Para locales en crecimiento</div>
-<ul class="feats"><li>Hasta 200 reservas</li><li>Recordatorios SMS</li><li>Estadísticas</li></ul>
+<ul class="feats"><li>Hasta 200 reservas</li><li>Recordatorios SMS</li><li>Pedir DNI + estadísticas</li></ul>
 <button class="btn-price" onclick="location.href='./local.html'">Empezar ahora</button>
 </div>
 <div class="price-card">
@@ -169,7 +171,7 @@ nav{padding:10px 12px}
 <div class="old">$17.990</div>
 <div class="price">$14.990<small>/mes</small> <span class="ahorro">Ahorrás $3.000</span></div>
 <div class="desc">Para múltiples sucursales</div>
-<ul class="feats"><li>Reservas ilimitadas</li><li>Multi-sucursal</li><li>Soporte prioritario</li></ul>
+<ul class="feats"><li>Reservas ilimitadas</li><li>Multi-sucursal + DNI</li><li>Soporte prioritario</li></ul>
 <button class="btn-price" onclick="location.href='./local.html'">Empezar ahora</button>
 </div>
 </div>
@@ -178,16 +180,16 @@ nav{padding:10px 12px}
 <div id="sec-contacto" class="sec">
 <div class="contacto">
 <h2>Contacto</h2>
-<p>¿Tenés dudas? Escribinos, te respondemos en el día</p>
+<p>¿Tenés dudas? Tu seguridad es nuestra prioridad</p>
 <div class="contacto-grid">
 <div class="c-item"><span>📱 WhatsApp</span><a href="https://wa.me/5491112345678">+54 9 11 1234-5678</a></div>
 <div class="c-item"><span>✉️ Email</span><a href="mailto:contacto@reservar.com">contacto@reservar.com</a></div>
-<div class="c-item"><span>📍 Instagram</span><a href="#">@reservAR.app</a></div>
+<div class="c-item"><span>🛡️ Seguridad</span><a href="#">Opción DNI</a></div>
 </div>
 </div>
 </div>
 
-<footer>© 2024 reservAR • Soporte • Términos • Privacidad • contacto@reservar.com</footer>
+<footer>© 2024 reservAR • Soporte • Términos • Privacidad • Opción DNI para tu seguridad</footer>
 <div id="modalLogin" class="modal" onclick="if(event.target==this)closeLogin()">
 <div class="modal-box">
 <h3>Bienvenido a reservAR</h3>
@@ -207,6 +209,13 @@ window.scrollTo({top:0,behavior:'smooth'});
 }
 function openLogin(){document.getElementById('modalLogin').classList.add('open')}
 function closeLogin(){document.getElementById('modalLogin').classList.remove('open')}
+let idx=0;
+const slides=document.querySelectorAll('#wrap-locales .slide');
+setInterval(()=>{
+slides[idx].classList.remove('active');
+idx=(idx+1)%slides.length;
+slides[idx].classList.add('active');
+},3000);
 </script>
 </body>
 </html>
