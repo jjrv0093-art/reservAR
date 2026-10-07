@@ -8,60 +8,57 @@
 :root{--v:#7c3aed;--c:#60a5fa;--bg:#0f0b1e;--card:#1a1433;--b:#2a2450}
 *{box-sizing:border-box;margin:0;padding:0;font-family:Inter,sans-serif}
 body{background:var(--bg);color:#fff}
-header{position:sticky;top:0;z-index:99;background:#0f0b1eE6;backdrop-filter:blur(12px);border-bottom:1px solid var(--b);padding:10px 12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.logo{display:flex;align-items:center;gap:6px;font-weight:800;font-size:14px;min-width:40px}
-.logo span#locCount{font-size:10px;background:var(--v);padding:2px 6px;border-radius:8px}
-.nav{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+header{position:sticky;top:0;z-index:99;background:#0f0b1eE6;backdrop-filter:blur(12px);border-bottom:1px solid var(--b);padding:10px 12px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800}
+.nav{display:flex;gap:6px;flex-wrap:wrap}
 .nav button{padding:6px 12px;border-radius:20px;border:1px solid var(--b);background:transparent;color:#aaa;cursor:pointer;font-size:12px}
 .nav button.active{background:#fff;color:#000;font-weight:700}
 .tab{display:none;padding:16px;max-width:1100px;margin:auto}
 .tab.active{display:block}
-.hero{text-align:center;padding:22px 0;max-width:720px;margin:auto}
-.hero h1{font-size:30px;line-height:1.1;font-weight:800}
-.hero h1 span{background:linear-gradient(90deg,var(--v),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block}
-.hero p{color:#aaa;margin:10px 0;font-size:13px}
+.hero{text-align:center;padding:18px 0}
+.hero h1{font-size:28px;line-height:1.1}
+.hero h1 span{background:linear-gradient(90deg,var(--v),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:#aaa;margin:8px 0;font-size:13px}
 .grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
-@media(min-width:900px){.grid2{grid-template-columns:1fr 1fr;gap:18px}.hero h1{font-size:40px}.card.slider{height:260px}}
 @media(max-width:700px){.grid2{grid-template-columns:1fr}}
 .card{background:var(--card);border:1px solid var(--b);border-radius:18px;overflow:hidden}
-.badge{font-size:10px;padding:4px 8px;border-radius:10px;margin:10px;display:inline-block;font-weight:800;letter-spacing:.5px}
-.badge.v{background:var(--v);color:#fff}
-.badge.c{background:var(--c);color:#000}
+.card.badge{font-size:10px;padding:4px 8px;background:var(--v);border-radius:10px;margin:8px;display:inline-block}
 .slider{position:relative;height:200px;overflow:hidden;background:#000}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity.6s}
-.slide.active{opacity:1}
-.slider img,.slider video{width:100%;height:100%;object-fit:cover}
+.slider.slide{position:absolute;inset:0;opacity:0;transition:opacity.6s}
+.slider.slide.active{opacity:1}
+.slider img{width:100%;height:100%;object-fit:cover}
 .btn{width:100%;padding:12px;border-radius:12px;border:0;font-weight:800;cursor:pointer;margin-top:8px}
-.btn-w{background:#fff;color:#000}.btn-v{background:var(--v);color:#fff}
-.list{padding:12px;font-size:12px;color:#bbb}
+.btn-w{background:#fff;color:#000}.btn-v{background:var(--v);color:#fff}.btn-c{background:var(--c);color:#000}
+.list{padding:10px;font-size:12px;color:#bbb}
 .list li{margin:6px 0;list-style:none}
 .sec{margin:14px 0;padding:14px;background:var(--card);border:1px solid var(--b);border-radius:16px}
 .step{display:flex;gap:10px;background:#fff;color:#000;border-radius:14px;padding:12px;margin:8px 0}
-.step b{background:var(--v);color:#fff;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;flex-shrink:0}
+.step b{background:var(--v);color:#fff;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%}
 .demo{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:center;background:#fff;color:#000;border-radius:14px;padding:10px;margin:10px 0}
 .demo.phone{width:100px;height:160px;background:#000;border-radius:12px;position:relative;overflow:hidden;border:3px solid #333}
 .phone-screen{position:absolute;inset:0;background:linear-gradient(#1a1433,#7c3aed);display:flex;flex-direction:column}
 .phone-screen.bar{height:14px;background:#000;display:flex;justify-content:space-between;padding:2px 4px;font-size:8px;color:#fff}
+.phone-screen.content{flex:1;padding:6px;display:flex;flex-direction:column;gap:4px;animation:scrollDemo 8s infinite}
+@keyframes scrollDemo{0%{transform:translateY(0)}50%{transform:translateY(-40px)}100%{transform:translateY(0)}}
 .mini{height:6px;background:#fff3;border-radius:4px}
+.mini.w2{width:70%}.mini.w3{width:90%}
 .plans{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:700px){.plans{grid-template-columns:1fr}}
-@media(min-width:900px){.plans{grid-template-columns:repeat(4,1fr)}}
 .plan{background:#fff;color:#000;border-radius:18px;padding:14px;text-align:center;position:relative;border:2px solid transparent}
-.plan.rec{border-color:#facc15}
+.plan.rec{border-color:#facc15;transform:scale(1.02)}
 .plan.tag{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#facc15;color:#000;font-size:10px;padding:2px 10px;border-radius:10px;font-weight:800}
 .plan h3{font-size:16px}.plan.tach{text-decoration:line-through;color:#999;font-size:13px}
-.plan.price{font-size:26px;font-weight:800}
-.contact{display:flex;justify-content:space-between;background:#ffffff12;border:1px solid var(--b);padding:12px;border-radius:12px;margin:8px 0;flex-wrap:wrap;gap:8px}
+.plan.price{font-size:26px;font-weight:800}.plan.price small{font-size:12px}
+.contact{display:flex;justify-content:space-between;background:#ffffff12;border:1px solid var(--b);padding:12px;border-radius:12px;margin:8px 0}
 .premium-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-@media(min-width:900px){.premium-list{grid-template-columns:repeat(4,1fr)}}
 .premium-card{background:#fff;color:#000;border-radius:12px;overflow:hidden;font-size:12px}
 .premium-card img{width:100%;height:90px;object-fit:cover}
-.mantenimiento{background:#ff0040;color:#fff;text-align:center;padding:10px;font-weight:800;position:sticky;top:0;z-index:100}
+.mantenimiento{background:#ff0040;color:#fff;text-align:center;padding:10px;font-weight:800}
 </style>
 </head>
 <body>
 <div id="mant" class="mantenimiento" style="display:none">Mantenimiento activo - Volvemos pronto</div>
-<header><div class="logo">📅 <span id="locCount"></span></div>
+<header><div class="logo">📅 <span id="locCount" style="font-size:10px;background:var(--v);padding:2px 6px;border-radius:8px"></span></div>
 <div class="nav">
 <button class="active" onclick="showTab('inicio',this)">Inicio</button>
 <button onclick="showTab('como',this)">Como Funciona</button>
@@ -69,107 +66,74 @@ header{position:sticky;top:0;z-index:99;background:#0f0b1eE6;backdrop-filter:blu
 <button onclick="showTab('contacto',this)">Contacto</button>
 <button onclick="redir('local')" style="background:var(--v);color:#fff;border:0;padding:6px 12px;border-radius:20px;font-weight:800">Iniciar sesión</button>
 </div></header>
+
 <div id="t-inicio" class="tab active">
 <div class="hero"><h1 id="h-title">reservAR<br><span>tu lugar tu momento</span></h1><p id="h-sub">Gestiona tu local y reservas de forma simple y segura</p>
 <button class="btn btn-w" onclick="redir('local')" id="h-btn">Soy Local - Crear cuenta</button></div>
 <div class="grid2">
-<div class="card"><span class="badge v">LOCALES</span>
+<div class="card"><span class="badge">LOCALES</span>
 <div class="slider" id="wrap-locales">
-<div class="slide active"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80" alt="local1"></div>
-<div class="slide"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="local2"></div>
-<div class="slide"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&q=80" alt="local3"></div>
+<div class="slide active"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80" alt="barber"></div>
+<div class="slide"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="barber2"></div>
+<div class="slide"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&q=80" alt="barber3"></div>
 </div>
-<div class="list"><p style="color:#93c5fd">🛡️ Tu seguridad nos importa. Solicita DNI en tus reservas y sentite más seguro (opcional)</p>
+<div class="list"><p style="color:#7cf">🛡️ Tu seguridad nos importa. Solicita DNI en tus reservas y sentite más seguro (opcional)</p>
 <button class="btn btn-w" onclick="redir('local')">Soy Local - Crear cuenta</button>
-<ul><li>✅ Gestioná turnos 24/7</li><li>✅ Notificaciones automáticas</li><li>✅ Opción pedir DNI para seguridad</li></ul></div></div>
-<div class="card" style="background:linear-gradient(135deg,#60a5fa22,#7c3aed22);border-color:#60a5fa44"><span class="badge c">CLIENTES</span>
+<ul><li>✅ Gestioná turnos 24/7</li><li>✅ Notificaciones automáticas</li><li>✅ Opción pedir DNI para seguridad</li></ul>
+</div></div>
+<div class="card" style="background:#60a5fa22;border-color:#60a5fa44"><span class="badge" style="background:var(--c);color:#000">CLIENTES</span>
 <div class="slider" id="wrap-clientes">
-<div class="slide active"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&q=80" alt="cliente1"></div>
-<div class="slide"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="cliente2"></div>
-<div class="slide"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=600&q=80" alt="cliente3"></div>
-</div>
-<div class="list"><p style="color:#bfdbfe;font-weight:600">Reservá en segundos, sin llamadas ni esperas</p>
-<button class="btn btn-v" onclick="redir('cliente')">Soy Cliente - Reservar</button>
-<ul style="color:#cbd5e1"><li>✅ Reservá 24/7 al instante</li><li>✅ Confirmación inmediata</li><li>✅ Recordatorios automáticos</li></ul></div></div>
-</div>
-</div>
-<div id="t-como" class="tab"><div class="sec"><h2>Cómo funciona reservAR</h2><p style="color:#aaa;font-size:13px">3 pasos simples</p>
-<div class="step"><b>1</b><div><strong>Registrá tu local</strong><p style="font-size:12px;color:#555">Crea tu cuenta en 2 minutos</p></div></div>
-<div class="step"><b>2</b><div><strong>Configurá servicios</strong><p style="font-size:12px;color:#555">Precios, horarios y duración</p></div></div>
-<div class="step"><b>3</b><div><strong>Recibí reservas</strong><p style="font-size:12px;color:#555">Tus clientes reservan 24/7</p></div></div>
-</div>
-<div class="sec"><h3>Vista previa</h3>
-<div class="demo"><div class="phone"><div class="phone-screen"><div class="bar"><span>9:41</span><span>•••</span></div><div style="padding:8px;display:grid;gap:6px"><div class="mini" style="width:90%"></div><div class="mini" style="width:70%"></div><div style="height:40px;background:#fff2;border-radius:8px"></div><div style="height:40px;background:#fff2;border-radius:8px"></div></div></div></div><div><strong>App simple para tus clientes</strong><p style="font-size:12px;color:#aaa">Reservan en 3 clics, sin registrarse</p></div></div>
+<div class="slide active"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80" alt="cliente"></div>
+<div class="slide"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&q=80" alt="cliente2"></div>
+<div class="slide"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80" alt="cliente3"></div>
+</div><div class="list"><p style="color:#000">Reservá en segundos, seguro y con DNI opcional</p>
+<button class="btn btn-w" onclick="redir('cliente')">Soy Cliente - Reservar</button>
+<ul style="color:#000"><li>✅ Reservá en 10 segundos</li><li>✅ Elegí tu local de confianza</li><li>✅ Más seguridad si piden DNI</li></ul>
 </div></div>
-<div id="t-planes" class="tab"><div class="sec"><h2 style="text-align:center">Planes para cada necesidad</h2><p id="planes-sub" style="text-align:center;color:#aaa;font-size:13px">Empezá gratis, crecé cuando quieras</p>
-<div class="plans" id="planes-wrap">
-<div class="plan"><h3>Gratis</h3><p class="price">$0</p><p style="font-size:12px">Para empezar</p><ul style="text-align:left;font-size:12px;margin:10px 0"><li>✓ 20 reservas/mes</li><li>✓ 1 servicio</li></ul><button class="btn btn-v" onclick="redir('local')">Empezar gratis</button></div>
-<div class="plan rec"><span class="tag">Más popular</span><h3>Pro</h3><p class="tach">$15.000</p><p class="price">$9.900</p><p style="font-size:12px">/mes</p><ul style="text-align:left;font-size:12px;margin:10px 0"><li>✓ Reservas ilimitadas</li><li>✓ Servicios ilimitados</li><li>✓ Recordatorios WhatsApp</li></ul><button class="btn btn-v" onclick="redir('local')">Elegir Pro</button></div>
-<div class="plan"><h3>Premium</h3><p class="price">$19.900</p><p style="font-size:12px">/mes</p><ul style="text-align:left;font-size:12px;margin:10px 0"><li>✓ Todo Pro +</li><li>✓ Multi sucursal</li><li>✓ Soporte prioritario</li></ul><button class="btn btn-w" style="background:#000;color:#fff" onclick="redir('local')">Elegir Premium</button></div>
-<div class="plan"><h3>Enterprise</h3><p class="price">A medida</p><ul style="text-align:left;font-size:12px;margin:10px 0"><li>✓ API propia</li><li>✓ Marca blanca</li></ul><button class="btn btn-w" style="background:#000;color:#fff" onclick="redir('local')">Contactar</button></div>
-</div></div></div>
-<div id="t-contacto" class="tab"><div class="sec"><h2>Contacto</h2><div id="contact-wrap">
-<div class="contact"><span>📱 WhatsApp</span><strong id="c-wsp">+54 9 11 1234-5678</strong></div>
-<div class="contact"><span>📸 Instagram</span><strong id="c-ig">@reservar.app</strong></div>
-<div class="contact"><span>✉️ Email</span><strong id="c-mail">hola@reservar.com</strong></div>
 </div>
-<h3 style="margin-top:16px">Locales destacados</h3><div class="premium-list" id="premium-list"></div>
-</div></div>
+<div class="sec"><h3>⭐ Locales Premium Destacados</h3><div id="premium-container" class="premium-list"><p style="color:#888">Cargando locales premium...</p></div></div>
+</div>
+
+<div id="t-como" class="tab">
+<h2 style="text-align:center">Como Funciona</h2><p style="text-align:center;color:#aaa;font-size:12px">Seguridad ante todo, vos tenés el control</p>
+<div class="step"><b>1</b><div><strong>Creá tu local</strong><br><span style="font-size:12px;color:#555">Registrá tu barbería o tu espacio en casa. Activá "Solicitar DNI" si querés mayor seguridad. 100% opcional.</span></div></div>
+<div class="step"><b>2</b><div><strong>Compartí tu link</strong><br><span style="font-size:12px;color:#555">Tus clientes reservan online. Si activaste DNI, se lo pedimos automáticamente.</span></div></div>
+<div class="step"><b>3</b><div><strong>Recibí reservas seguras</strong><br><span style="font-size:12px;color:#555">Sabés quién viene a tu local o a tu casa. Más tranquilidad si trabajás desde tu hogar.</span></div></div>
+<div style="display:flex;gap:8px;margin:10px 0"><button class="btn btn-w" style="width:auto" onclick="showVideo('local')">📱 Video Local</button><button class="btn" style="width:auto;background:#000;color:#fff" onclick="showVideo('cliente')">👤 Video Cliente</button></div>
+<div id="v-local" class="demo"><div class="phone"><div class="phone-screen"><div class="bar"><span>9:41</span><span>📶</span></div><div class="content" id="anim-local"><div class="mini w3"></div><div class="mini w2"></div><div class="mini w3" style="background:var(--v)"></div><div class="mini w2"></div><div class="mini w3"></div></div></div></div><div><strong>Como se maneja la app local</strong><p style="font-size:11px;color:#555">Video real de 15s: creás tu local, activás opción pedir DNI, configurás horarios y recibís reservas al instante.</p><ul style="font-size:11px"><li>✔️ Activá DNI opcional</li><li>✔️ Panel simple</li><li>✔️ Notificación al reservar</li></ul></div></div>
+<div id="v-cliente" class="demo" style="display:none"><div class="phone"><div class="phone-screen" style="background:linear-gradient(#0f172a,#60a5fa)"><div class="bar"><span>9:41</span><span>📶</span></div><div class="content" id="anim-cliente"><div class="mini w3"></div><div class="mini w3" style="background:#fff"></div><div class="mini w2"></div><div class="mini w3" style="background:#22c55e"></div></div></div></div><div><strong>Como reserva el cliente</strong><p style="font-size:11px;color:#555">Video real de 10s: elige local premium, elige horario, confirma con DNI si el local lo pide y listo.</p><ul style="font-size:11px"><li>✔️ Reserva en 10s</li><li>✔️ Ve locales premium</li><li>✔️ Seguro con DNI</li></ul></div></div>
+</div>
+
+<div id="t-planes" class="tab">
+<div class="plans" id="plans-container"></div>
+<p style="text-align:center;color:#888;font-size:11px;margin-top:10px">7 días gratis automático. 48hs gracia al vencer. Plan Casa sin vencimiento, por uso.</p>
+</div>
+
+<div id="t-contacto" class="tab">
+<h2 style="text-align:center">Contacto</h2><p style="text-align:center;color:#aaa;font-size:12px" id="c-sub">Tu seguridad es nuestra prioridad</p>
+<div class="contact"><span>📱 WhatsApp</span><strong id="c-wsp" style="color:var(--c)">+54 9 11 1234-5678</strong></div>
+<div class="contact"><span>✉️ Email</span><strong id="c-email" style="color:var(--c)">contacto@reservar.com</strong></div>
+<div class="sec" id="c-extra" style="font-size:12px;color:#aaa"></div>
+<div style="text-align:center;color:#555;font-size:11px;margin-top:20px" id="f-text">© 2024 reservAR - Opción DNI para seguridad</div>
+</div><script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
 <script>
-function showTab(id,el){
-document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
-var target=document.getElementById('t-'+id);
-if(target) target.classList.add('active');
-document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
-if(el) el.classList.add('active');
-window.scrollTo(0,0);
+const firebaseConfig={apiKey:"AIzaSyA1x...",authDomain:"reservar-cb70d.firebaseapp.com",projectId:"reservar-cb70d"};
+firebase.initializeApp(firebaseConfig);const db=firebase.firestore();
+function redir(tipo){var p=new URLSearchParams(window.location.search);var src=p.get('src')||'landing';var dest=tipo==='local'?'/local.html':'/cliente.html';window.location.href=dest+'?src='+src}
+function showTab(id,el){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));var tg=document.getElementById('t-'+id);if(tg)tg.classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));var btn=el||(typeof event!=='undefined'?event.target:null);if(btn)btn.classList.add('active');window.scrollTo(0,0)}
+function showVideo(t){document.getElementById('v-local').style.display=t==='local'?'grid':'none';document.getElementById('v-cliente').style.display=t==='cliente'?'grid':'none'}
+function initSliders(){setInterval(()=>{let a=document.querySelector('#wrap-locales.slide.active');let slides=document.querySelectorAll('#wrap-locales.slide');if(!a||!slides.length)return;let n=a.nextElementSibling;if(!n||!n.classList.contains('slide'))n=slides[0];a.classList.remove('active');n.classList.add('active')},3500);setInterval(()=>{let a=document.querySelector('#wrap-clientes.slide.active');let slides=document.querySelectorAll('#wrap-clientes.slide');if(!a||!slides.length)return;let n=a.nextElementSibling;if(!n||!n.classList.contains('slide'))n=slides[0];a.classList.remove('active');n.classList.add('active')},3800)}
+function renderPlanes(planes){let cont=document.getElementById('plans-container');cont.innerHTML='';let orden=['casa','base','medio','premium'];orden.forEach(k=>{let p=planes[k];if(!p)return;let isCasa=k==='casa';let precioT=p.tachado||p.t||'';let precioP=p.precio||p.p||p.promo||'';let lim=p.limite||p.cupos||0;let agot=p.restantes!==undefined&&p.restantes<=0;let rec=p.destacado===k||k==='medio';let html=`<div class="plan ${rec?'rec':''}">${rec?'<span class="tag">RECOMENDADO</span>':''}<h3>${isCasa?'🏠':''} ${k.toUpperCase()}</h3>${precioT?`<div class="tach">$${precioT}</div>`:''}<div class="price">$${precioP}<small>${isCasa?' por reserva':'/mes'}</small></div><p style="font-size:11px;color:#666">${isCasa?'Para los que trabajan desde su hogar':p.desc||''}</p><ul style="font-size:12px;text-align:left;margin:8px 0"><li>${isCasa?'Pago por uso, sin mes':''}</li><li>${isCasa?'Ideal freelance / casa':`Hasta ${lim} reservas`}</li><li>${k==='medio'?'Pedir DNI + estadísticas':'Opción DNI opcional'}</li></ul><button class="btn ${isCasa?'btn-c':rec?'btn-c':'btn-v'}" ${agot?'disabled':''} onclick="location.href='/local.html?plan=${k}&src=landing'">${agot?'AGOTADO':'Empezar con '+(isCasa?'Casa':'ahora')}</button></div>`;cont.innerHTML+=html})}
+function renderPremium(locales){let c=document.getElementById('premium-container');if(!locales.length){c.innerHTML='<p style="color:#888">Aún no hay locales premium, sé el primero en destacarte ⭐</p>';return}c.innerHTML='';locales.forEach(l=>{let img=l.logoUrl||l.galeria?.[0]||'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=300';c.innerHTML+=`<div class="premium-card"><img src="${img}"><div style="padding:8px"><strong>${l.nombre||'Local Premium'}</strong><br><small>${l.direccion||''}</small><br><button class="btn btn-v" style="padding:6px;margin-top:4px" onclick="location.href='/cliente.html?local=${l.id||l.celu}&src=landing'">Reservar</button></div></div>`})}function initRealtime(){
+db.doc('config/landing').onSnapshot(s=>{if(!s.exists)return;let d=s.data();if(d.mantenimiento){document.getElementById('mant').style.display='block'}else{document.getElementById('mant').style.display='none'}if(d.heroTitle)document.getElementById('h-title').innerHTML=d.heroTitle;if(d.heroSub)document.getElementById('h-sub').innerText=d.heroSub;if(d.heroBtn)document.getElementById('h-btn').innerText=d.heroBtn;if(d.contactSub)document.getElementById('c-sub').innerText=d.contactSub;if(d.footer)document.getElementById('f-text').innerText=d.footer;if(d.galeriaLocales&&d.galeriaLocales.length){let w=document.getElementById('wrap-locales');w.innerHTML='';d.galeriaLocales.forEach((u,i)=>{w.innerHTML+=`<div class="slide ${i==0?'active':''}"><img src="${u}"></div>`}) }if(d.galeriaClientes&&d.galeriaClientes.length){let w=document.getElementById('wrap-clientes');w.innerHTML='';d.galeriaClientes.forEach((u,i)=>{w.innerHTML+=`<div class="slide ${i==0?'active':''}"><img src="${u}"></div>`}) }});
+db.doc('config/planes').onSnapshot(s=>{if(!s.exists)return;renderPlanes(s.data())});
+db.doc('config/cobros').onSnapshot(s=>{if(!s.exists)return;let d=s.data();if(d.whatsapp)document.getElementById('c-wsp').innerText=d.whatsapp;if(d.email)document.getElementById('c-email').innerText=d.email;if(d.alias)document.getElementById('c-extra').innerHTML=`Alias: ${d.alias} | CBU: ${d.cbu||''}<br>Titular: ${d.titular||''}`});
+db.collection('config').where('plan','==','Premium').where('apareceEnLanding','==',true).where('planActivo','==',true).onSnapshot(ss=>{let arr=[];ss.forEach(doc=>{let d=doc.data();let vence=d.planVence?.toDate?d.planVence.toDate():new Date(d.planVence||0);if(vence>new Date()){arr.push({id:doc.id,...d})}});document.getElementById('locCount').innerText=arr.length?`${arr.length} premium`:`demo`;renderPremium(arr)});
+db.doc('config/adm').onSnapshot(s=>{if(!s.exists)return;let d=s.data();if(d.mantenimientoOn){document.getElementById('mant').style.display='block'}})
 }
-function redir(tipo){
-var params=new URLSearchParams(window.location.search);
-var src=params.get('src')||'landing';
-var dest=tipo==='local'?'local.html':'cliente.html';
-window.location.href=dest+'?src='+src;
-}
-function initSliders(){
-function startSlider(selector){
-var slides=document.querySelectorAll(selector+'.slide');
-if(!slides.length) return;
-var i=0;
-setInterval(function(){
-slides[i].classList.remove('active');
-i=(i+1)%slides.length;
-slides[i].classList.add('active');
-},3000);
-}
-startSlider('#wrap-locales');
-startSlider('#wrap-clientes');
-}
-function loadAdm(){
-try{
-var mant=localStorage.getItem('adm_mantenimiento');
-if(mant==='1') document.getElementById('mant').style.display='block';
-var title=localStorage.getItem('adm_title');
-if(title) document.getElementById('h-title').innerHTML=title;
-var sub=localStorage.getItem('adm_sub');
-if(sub) document.getElementById('h-sub').textContent=sub;
-var btn=localStorage.getItem('adm_btn');
-if(btn) document.getElementById('h-btn').textContent=btn;
-var count=localStorage.getItem('adm_locCount');
-if(count) document.getElementById('locCount').textContent=count+' locales';
-else document.getElementById('locCount').textContent='127 locales';
-var wsp=localStorage.getItem('adm_wsp');
-if(wsp) document.getElementById('c-wsp').textContent=wsp;
-var ig=localStorage.getItem('adm_ig');
-if(ig) document.getElementById('c-ig').textContent=ig;
-var mail=localStorage.getItem('adm_mail');
-if(mail) document.getElementById('c-mail').textContent=mail;
-var premium=localStorage.getItem('adm_premium');
-var wrap=document.getElementById('premium-list');
-if(premium){wrap.innerHTML=premium;}
-else{wrap.innerHTML='<div class="premium-card"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=300"><div style="padding:6px"><strong>Barbería Centro</strong><p>La Plata</p></div></div><div class="premium-card"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=300"><div style="padding:6px"><strong>Estudio Luna</strong><p>City Bell</p></div></div>';}
-}catch(e){}
-}
-document.addEventListener('DOMContentLoaded',function(){loadAdm();initSliders();});
+initSliders();initRealtime();
+setInterval(()=>{let el=document.getElementById('anim-local');if(!el)return;el.innerHTML=`<div class="mini w3"></div><div class="mini w2" style="background:#22c55e"></div><div class="mini w3" style="background:var(--v)"></div><div class="mini w2"></div>`;setTimeout(()=>{el.innerHTML+=`<div class="mini w3" style="background:#fff"></div>`},800)},4000)
 </script>
 </body>
 </html>
