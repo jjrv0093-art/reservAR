@@ -9,13 +9,13 @@
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif}
 body{background:#0c061a;color:#fff;min-height:100vh;overflow-x:hidden;display:flex;flex-direction:column;align-items:center}
 nav{display:flex;justify-content:space-between;align-items:center;padding:10px 14px;margin:12px auto;background:rgba(40,20,70,0.6);border:1px solid rgba(140,100,255,0.2);border-radius:14px;backdrop-filter:blur(10px);width:95%;max-width:1300px;gap:10px;flex-wrap:wrap;position:sticky;top:12px;z-index:50}
-.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px;white-space:nowrap}
+.logo{display:flex;align-items:center;gap:8px;font-weight:800;font-size:20px}
 .logo-icon{width:28px;height:28px;background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.2);border-radius:7px;display:grid;place-items:center;color:#fff;font-size:14px}
 .nav-links{display:flex;gap:16px;font-size:13px;opacity:0.7;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
 .nav-links::-webkit-scrollbar{display:none}
 .nav-links span{cursor:pointer;padding:5px 10px;border-radius:20px;transition:.2s}
 .nav-links span.active{background:#fff;color:#4f2bd9;opacity:1;font-weight:700}
-.btn-login{border:1px solid rgba(255,255,255,0.6);border-radius:20px;padding:5px 12px;font-size:11px;background:transparent;color:#fff;white-space:nowrap;cursor:pointer}
+.btn-login{border:1px solid rgba(255,255,255,0.6);border-radius:20px;padding:5px 12px;font-size:11px;background:transparent;color:#fff;cursor:pointer}
 .sec{width:95%;max-width:1300px;margin:0 auto;display:none;flex-direction:column;align-items:center;animation:fade.25s ease}
 .sec.active{display:flex}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
@@ -28,41 +28,23 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:10px 1
 .card-locales{background:linear-gradient(135deg,#7c3aed,#4f2bd9)}
 .card-clientes{background:linear-gradient(135deg,#93c5fd,#60a5fa);color:#1e1b4b}
 .badge-top{display:inline-block;background:rgba(255,255,255,0.25);padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:8px}
-.card-clientes.badge-top{background:rgba(255,255,255,0.7);color:#1e3a8a}
+.card-clientes .badge-top{background:rgba(255,255,255,0.7);color:#1e3a8a}
 .img-wrap{width:100%;height:170px;border-radius:12px;overflow:hidden;background:#0003;margin-bottom:10px;position:relative}
-.img-wrap.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity.6s ease}
-.img-wrap.slide.active{opacity:1}
+.img-wrap .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity.6s ease}
+.img-wrap .slide.active{opacity:1}
 .seguridad{background:rgba(255,255,255,0.12);border:1px dashed rgba(255,255,255,0.35);border-radius:10px;padding:7px 10px;font-size:11px;font-weight:600;margin-bottom:10px;display:flex;gap:6px;align-items:center;line-height:1.2}
 .btn-card{width:100%;padding:11px;border-radius:10px;border:none;font-weight:700;font-size:13px;margin-bottom:10px;cursor:pointer}
-.card-locales.btn-card{background:#fff;color:#4f2bd9}
-.card-clientes.btn-card{background:#1e40af;color:#fff}
+.card-locales .btn-card{background:#fff;color:#4f2bd9}
+.card-clientes .btn-card{background:#1e40af;color:#fff}
 .checks{list-style:none;display:flex;flex-direction:column;gap:5px;font-size:12px}
 .checks li::before{content:"✔";display:inline-grid;place-items:center;width:16px;height:16px;background:#22c55e;color:#fff;border-radius:50%;font-size:9px;margin-right:7px}
-.como{background:rgba(40,20,70,0.4);border:1px solid rgba(140,100,255,0.15);border-radius:18px;padding:18px;width:100%;margin:12px auto;text-align:center}
-.como h2{font-size:24px;font-weight:800;margin-bottom:4px}
-.como p.sub{color:#b8a0ff;font-size:12px;margin-bottom:12px}
-.steps{display:flex;flex-direction:column;gap:10px;text-align:left;width:100%}
-.step{background:#f5f3ff;color:#1e1b4b;border-radius:12px;padding:12px;display:flex;gap:10px;align-items:flex-start}
-.step-num{width:28px;height:28px;background:#7c3aed;color:#fff;border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:13px;flex-shrink:0}
-.step h4{font-size:13px;font-weight:700}
-.step p{font-size:11px;opacity:0.7;margin-top:2px}
-.video-tabs{display:flex;gap:8px;justify-content:center;margin:14px 0 10px}
-.vtab{padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:11px;font-weight:700;cursor:pointer}
-.vtab.active{background:#fff;color:#4f2bd9}
-.video-box{width:100%;background:#f5f3ff;border-radius:14px;padding:10px;display:flex;gap:10px;align-items:center}
-.phone{width:110px;height:190px;background:#0c061a;border-radius:14px;border:3px solid #2e1a8a;flex-shrink:0;display:grid;place-items:center;color:#a78bfa;font-size:10px;position:relative;overflow:hidden}
-.phone video{width:100%;height:100%;object-fit:cover}
-.vinfo{text-align:left;color:#1e1b4b;flex:1}
-.vinfo h4{font-size:13px;font-weight:800}
-.vinfo p{font-size:11px;opacity:0.7;margin:4px 0 6px}
-.vcheck{font-size:11px;font-weight:600;display:flex;gap:4px;align-items:center;margin-top:3px}
 .mantenimiento{background:#ff0040;color:#fff;text-align:center;padding:8px 12px;font-weight:800;font-size:12px;width:95%;max-width:1300px;margin:0 auto 8px;border-radius:10px;display:none}
 </style>
 </head>
 <body>
-<div id="mant" class="mantenimiento">Mantenimiento activo - Volvemos pronto</div>
+<div id="mant" class="mantenimiento">Mantenimiento activo</div>
 <nav>
-<div class="logo"><div class="logo-icon">📅</div><span id="locCount" style="font-size:10px;background:#7c3aed;padding:2px 6px;border-radius:8px;margin-left:4px"></span></div>
+<div class="logo"><div class="logo-icon">📅</div><div id="locCount" style="font-size:10px;background:#7c3aed;padding:2px 6px;border-radius:8px"></div></div>
 <div class="nav-links">
 <span id="tab-inicio" class="active" onclick="showTab('inicio',this)">Inicio</span>
 <span id="tab-como" onclick="showTab('como',this)">Como Funciona</span>
@@ -96,69 +78,88 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:10px 1
 <ul class="checks"><li>Reservá en minutos</li><li>Recordatorios por whatsapp</li><li>Elegí tu barbero favorito</li></ul>
 </div>
 </div>
-<div id="premium-box" style="width:100%;margin:12px 0;background:rgba(40,20,70,0.4);border:1px solid rgba(140,100,255,0.15);border-radius:14px;padding:12px"><h3 style="font-size:13px">⭐ Locales Premium Destacados</h3><div id="premium-container" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;font-size:11px;color:#b8a0ff">Cargando premium...</div></div>
+<div id="premium-box" style="width:100%;margin:12px 0;background:rgba(40,20,70,0.4);border:1px solid rgba(140,100,255,0.15);border-radius:14px;padding:12px"><h3 style="font-size:13px">⭐ Locales Premium Destacados</h3><div id="premium-container" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;font-size:11px;color:#b8a0ff"></div></div>
 </div>
 <div id="sec-como" class="sec">
-<div class="como">
-<h2>Como Funciona</h2>
-<p class="sub">Seguridad ante todo, vos tenés el control</p>
-<div class="steps">
-<div class="step"><div class="step-num">1</div><div><h4>Creá tu local</h4><p>Registrá tu barbería o tu espacio en casa. Activá "Solicitar DNI" si querés mayor seguridad. 100% opcional.</p></div></div>
-<div class="step"><div class="step-num">2</div><div><h4>Compartí tu link</h4><p>Tus clientes reservan online. Si activaste DNI, se lo pedimos automáticamente.</p></div></div>
-<div class="step"><div class="step-num">3</div><div><h4>Recibí reservas seguras</h4><p>Sabés quién viene a tu local o a tu casa. Más tranquilidad si trabajás desde tu hogar.</p></div></div>
+<div class="como" style="background:rgba(40,20,70,0.4);border:1px solid rgba(140,100,255,0.15);border-radius:18px;padding:18px;width:100%;margin:12px auto;text-align:center">
+<h2 style="font-size:24px;font-weight:800;margin-bottom:4px">Como Funciona</h2>
+<p style="color:#b8a0ff;font-size:12px;margin-bottom:12px">Seguridad ante todo, vos tenés el control</p>
+<div class="steps" style="display:flex;flex-direction:column;gap:10px;text-align:left;width:100%">
+<div class="step" style="background:#f5f3ff;color:#1e1b4b;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="width:28px;height:28px;background:#7c3aed;color:#fff;border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:13px;flex-shrink:0">1</div><div><h4 style="font-size:13px;font-weight:700">Creá tu local</h4><p style="font-size:11px;opacity:0.7;margin-top:2px">Registrá tu barbería o tu espacio en casa.</p></div></div>
+<div class="step" style="background:#f5f3ff;color:#1e1b4b;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="width:28px;height:28px;background:#7c3aed;color:#fff;border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:13px;flex-shrink:0">2</div><div><h4 style="font-size:13px;font-weight:700">Compartí tu link</h4><p style="font-size:11px;opacity:0.7;margin-top:2px">Tus clientes reservan online.</p></div></div>
+<div class="step" style="background:#f5f3ff;color:#1e1b4b;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="width:28px;height:28px;background:#7c3aed;color:#fff;border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:13px;flex-shrink:0">3</div><div><h4 style="font-size:13px;font-weight:700">Recibí reservas seguras</h4><p style="font-size:11px;opacity:0.7;margin-top:2px">Sabés quién viene a tu local o a tu casa.</p></div></div>
 </div>
-<div class="video-tabs">
-<button id="vt-local" class="vtab active" onclick="showVideo('local')">📱 Video Local</button>
-<button id="vt-cliente" class="vtab" onclick="showVideo('cliente')">👤 Video Cliente</button>
+<div style="display:flex;gap:8px;justify-content:center;margin:14px 0 10px">
+<button id="vt-local" style="padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.2);background:#fff;color:#4f2bd9;font-size:11px;font-weight:700;cursor:pointer" onclick="showVideo('local')">📱 Video Local</button>
+<button id="vt-cliente" style="padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:11px;font-weight:700;cursor:pointer" onclick="showVideo('cliente')">👤 Video Cliente</button>
 </div>
-<div id="vid-local" class="video-box">
-<div class="phone" id="anim-local"><span>📱 DEMO LOCAL<br>15s</span></div>
-<div class="vinfo"><h4>Como se maneja la app local</h4><p>Video real de 15s: creás tu local, activás opción pedir DNI, configurás horarios y recibís reservas al instante.</p><div class="vcheck">✔️ Activá DNI opcional</div><div class="vcheck">✔️ Panel simple</div><div class="vcheck">✔️ Notificación al reservar</div></div>
+<div id="vid-local" style="width:100%;background:#f5f3ff;border-radius:14px;padding:10px;display:flex;gap:10px;align-items:center">
+<div style="width:110px;height:190px;background:#0c061a;border-radius:14px;border:3px solid #2e1a8a;flex-shrink:0;overflow:hidden;position:relative"><video id="video-local" playsinline muted loop controls style="width:100%;height:100%;object-fit:cover"></video></div>
+<div style="text-align:left;color:#1e1b4b;flex:1"><h4 style="font-size:13px;font-weight:800">Como se maneja la app local</h4><p style="font-size:11px;opacity:0.7;margin:4px 0 6px">Video real: creás tu local y recibís reservas.</p><div style="font-size:11px;font-weight:600">✔️ Panel simple</div><div style="font-size:11px;font-weight:600">✔️ Notificación al reservar</div></div>
 </div>
-<div id="vid-cliente" class="video-box" style="display:none"><div class="phone" style="border-color:#60a5fa"><span>👤 DEMO CLIENTE<br>10s</span></div><div class="vinfo"><h4>Como reserva el cliente</h4><p>Video real: el cliente elige servicio, barbero, horario, pone DNI si se lo pedís y reserva en 20 segundos.</p><div class="vcheck">✔️ Reserva en 3 pasos</div><div class="vcheck">✔️ Pone DNI si lo solicitás</div><div class="vcheck">✔️ Recordatorio por WhatsApp</div></div></div>
+<div id="vid-cliente" style="width:100%;background:#f5f3ff;border-radius:14px;padding:10px;display:flex;gap:10px;align-items:center;display:none">
+<div style="width:110px;height:190px;background:#0c061a;border-radius:14px;border:3px solid #60a5fa;flex-shrink:0;overflow:hidden;position:relative"><video id="video-cliente" playsinline muted loop controls style="width:100%;height:100%;object-fit:cover"></video></div>
+<div style="text-align:left;color:#1e1b4b;flex:1"><h4 style="font-size:13px;font-weight:800">Como reserva el cliente</h4><p style="font-size:11px;opacity:0.7;margin:4px 0 6px">Video real: reserva en 20 segundos.</p><div style="font-size:11px;font-weight:600">✔️ Reserva en 3 pasos</div><div style="font-size:11px;font-weight:600">✔️ Recordatorio por WhatsApp</div></div>
+</div>
 </div>
 </div>
 <div id="sec-planes" class="sec">
-<div class="planes" style="text-align:center;padding:16px 0 6px;width:100%"><h2 style="font-size:24px;font-weight:800">Planes y Precios</h2><p id="planes-sub" style="color:#b8a0ff;font-size:12px;margin-top:4px">Elegí el plan que mejor se adapta a tu negocio</p><div style="display:inline-flex;align-items:center;gap:6px;background:#fde047;color:#422006;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:700;margin:10px auto">⭐ 20% OFF - Promo Lanzamiento</div></div>
+<div style="text-align:center;padding:16px 0 6px;width:100%"><h2 style="font-size:24px;font-weight:800">Planes y Precios</h2><p id="planes-sub" style="color:#b8a0ff;font-size:12px;margin-top:4px">Elegí el plan que mejor se adapta a tu negocio</p><div style="display:inline-flex;align-items:center;gap:6px;background:#fde047;color:#422006;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:700;margin:10px auto">⭐ 20% OFF - Promo Lanzamiento</div></div>
 <div id="plans-container" style="display:flex;flex-direction:column;gap:12px;padding:0 0 16px;width:100%;justify-content:center;flex-wrap:wrap"></div>
 <p style="text-align:center;color:#888;font-size:10px">7 días gratis automático. 48hs gracia al vencer. Plan Casa sin vencimiento, por uso.</p>
 </div>
 <div id="sec-contacto" class="sec">
-<div class="contacto" style="background:linear-gradient(135deg,#1a1040,#2e1a8a);border:1px solid rgba(140,100,255,0.2);border-radius:18px;padding:18px;width:100%;margin:12px auto;text-align:center">
+<div style="background:linear-gradient(135deg,#1a1040,#2e1a8a);border:1px solid rgba(140,100,255,0.2);border-radius:18px;padding:18px;width:100%;margin:12px auto;text-align:center">
 <h2 style="font-size:20px;font-weight:800">Contacto</h2><p id="c-sub" style="color:#b8a0ff;font-size:12px;margin:6px 0 12px">Tu seguridad es nuestra prioridad</p>
 <div style="display:flex;flex-direction:column;gap:8px;width:100%">
-<div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:10px;font-size:12px;display:flex;justify-content:space-between"><span>📱 WhatsApp</span><a id="c-wsp" href="#" style="color:#fde047;font-weight:700;text-decoration:none">+54 9 11 1234-5678</a></div>
-<div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:10px;font-size:12px;display:flex;justify-content:space-between"><span>✉️ Email</span><a id="c-email" href="#" style="color:#fde047;font-weight:700;text-decoration:none">contacto@reservar.com</a></div>
+<div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:10px;font-size:12px;display:flex;justify-content:space-between"><span>📱 WhatsApp</span><a id="c-wsp" href="#" style="color:#fde047;font-weight:700;text-decoration:none"></a></div>
+<div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:10px;font-size:12px;display:flex;justify-content:space-between"><span>✉️ Email</span><a id="c-email" href="#" style="color:#fde047;font-weight:700;text-decoration:none"></a></div>
 <div id="c-extra" style="font-size:10px;color:#a78bfa;margin-top:6px"></div>
 </div>
 </div>
 </div>
-<footer id="f-text" style="text-align:center;padding:12px;font-size:9px;color:#a78bfa;background:rgba(40,20,70,0.6);margin:12px auto;border-radius:12px;width:95%;max-width:1300px">© 2024 reservAR • Opción DNI para tu seguridad</footer>
+<footer id="f-text" style="text-align:center;padding:12px;font-size:9px;color:#a78bfa;background:rgba(40,20,70,0.6);margin:12px auto;border-radius:12px;width:95%;max-width:1300px"></footer>
 <div id="modalLogin" style="position:fixed;inset:0;background:rgba(5,2,15,0.8);backdrop-filter:blur(8px);display:none;place-items:center;z-index:100;padding:16px" onclick="if(event.target==this)closeLogin()">
 <div style="background:#1a1040;border:1px solid rgba(140,100,255,0.3);border-radius:20px;padding:20px;width:100%;max-width:340px;text-align:center"><h3 style="font-size:18px;font-weight:800;margin-bottom:6px">Bienvenido a reservAR</h3><p style="font-size:11px;color:#a78bfa;margin-bottom:14px">elegí como querés ingresar</p><button style="width:100%;padding:12px;border-radius:12px;border:none;font-weight:800;font-size:14px;margin-bottom:8px;cursor:pointer;background:#7c3aed;color:#fff" onclick="redir('local')">🏪 SOY LOCAL</button><button style="width:100%;padding:12px;border-radius:12px;border:none;font-weight:800;font-size:14px;margin-bottom:8px;cursor:pointer;background:#bfdbfe;color:#1e40af" onclick="redir('cliente')">👤 SOY CLIENTE</button><button style="width:100%;padding:8px;border-radius:12px;background:transparent;color:#a78bfa;border:1px solid rgba(255,255,255,0.15);font-size:11px;cursor:pointer" onclick="closeLogin()">Cerrar</button></div>
 </div>
 <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
 <script>
-const firebaseConfig={apiKey:"AIzaSyA1x...",authDomain:"reservar-cb70d.firebaseapp.com",projectId:"reservar-cb70d",storageBucket:"reservar-cb70d.appspot.com",messagingSenderId:"123456789",appId:"1:123456789:web:abc"};
-firebase.initializeApp(firebaseConfig);const db=firebase.firestore();
+const firebaseConfig={apiKey:"AIzaSyC57wshaJ2EuIBoBdXv18opL4u_Vuw2bAQ",authDomain:"reservar-cb70d.firebaseapp.com",projectId:"reservar-cb70d",storageBucket:"reservar-cb70d.appspot.com"};
+firebase.initializeApp(firebaseConfig);
+const db=firebase.firestore();
 function redir(tipo,plan){var p=new URLSearchParams(window.location.search);var src=p.get('src')||'landing';var dest=tipo==='local'?'./local.html':'./cliente.html';var url=dest+'?src='+src;if(plan)url+='&plan='+plan;window.location.href=url}
 function showTab(n,el){document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));document.querySelectorAll('.nav-links span').forEach(s=>s.classList.remove('active'));var sec=document.getElementById('sec-'+n);if(sec)sec.classList.add('active');var tab=document.getElementById('tab-'+n);if(tab)tab.classList.add('active');else if(el)el.classList.add('active');window.scrollTo({top:0,behavior:'smooth'})}
 function openLogin(){document.getElementById('modalLogin').style.display='grid'}
 function closeLogin(){document.getElementById('modalLogin').style.display='none'}
-function showVideo(t){document.getElementById('vid-local').style.display=t==='local'?'flex':'none';document.getElementById('vid-cliente').style.display=t==='cliente'?'flex':'none';document.getElementById('vt-local').classList.toggle('active',t==='local');document.getElementById('vt-cliente').classList.toggle('active',t==='cliente')}
-function initSliders(){let s1=document.querySelectorAll('#wrap-locales.slide');let s2=document.querySelectorAll('#wrap-clientes.slide');let i1=0,i2=0;if(s1.length){setInterval(()=>{s1[i1].classList.remove('active');i1=(i1+1)%s1.length;s1[i1].classList.add('active')},3500)}if(s2.length){setInterval(()=>{s2[i2].classList.remove('active');i2=(i2+1)%s2.length;s2[i2].classList.add('active')},3800)}}
-function renderPlanes(planes){let cont=document.getElementById('plans-container');if(!cont||!planes)return;cont.innerHTML='';let orden=['casa','base','medio','premium'];orden.forEach(k=>{let p=planes[k];if(!p)return;let isCasa=k==='casa';let precioT=p.tachado||p.t||'';let precioP=p.precio||p.p||p.promo||'';let lim=p.limite||p.cupos||0;let agot=p.restantes!==undefined&&p.restantes<=0;let rec=p.destacado===k||k==='medio';let bg=isCasa?'#f0fdf4':rec?'#2e1a8a':'#f5f3ff';let col=isCasa?'#1e1b4b':rec?'#fff':'#1e1b4b';let border=isCasa?'2px solid #22c55e':rec?'2px solid #fde047':'2px solid transparent';let html=`<div style="background:${bg};color:${col};border-radius:16px;padding:16px;text-align:center;position:relative;border:${border};flex:1;min-width:280px">${rec||isCasa?`<div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:${isCasa?'#22c55e':'#fde047'};color:${isCasa?'#fff':'#422006'};font-size:9px;font-weight:800;padding:3px 10px;border-radius:12px">${isCasa?'IDEAL CASA':'RECOMENDADO'}</div>`:''}<h3 style="font-size:15px;font-weight:700">${isCasa?'🏠 ':''}${k.toUpperCase()}</h3>${precioT?`<div style="font-size:12px;text-decoration:line-through;opacity:0.6">$${precioT}</div>`:''}<div style="font-size:30px;font-weight:800;margin:6px 0">$${precioP}<small style="font-size:12px">${isCasa?' por reserva':'/mes'}</small></div><p style="font-size:11px;opacity:0.7;margin-bottom:10px">${isCasa?'Para los que trabajan desde su hogar':p.desc||''}</p><ul style="font-size:11px;text-align:left;list-style:none;margin:8px 0"><li>${isCasa?'Pago por uso, sin mes':`Hasta ${lim} reservas`}</li><li>${k==='medio'?'Pedir DNI + estadísticas':'Opción DNI opcional'}</li></ul><button style="width:100%;padding:9px;border-radius:10px;border:1.5px solid ${isCasa?'#22c55e':rec?'#fde047':'#6d28d9'};background:${isCasa?'#22c55e':rec?'#fde047':'#fff'};color:${isCasa?'#fff':rec?'#1e1b4b':'#6d28d9'};font-weight:700;font-size:12px;cursor:pointer" ${agot?'disabled':''} onclick="redir('local','${k}')">${agot?'AGOTADO':'Empezar con '+(isCasa?'Casa':'ahora')}</button></div>`;cont.innerHTML+=html})}
-function renderPremium(locales){let c=document.getElementById('premium-container');let countEl=document.getElementById('locCount');if(countEl)countEl.innerText=locales.length?`${locales.length} premium`:`demo`;if(!c)return;if(!locales.length){c.innerHTML='<p style="color:#888">Aún no hay locales premium, sé el primero en destacarte ⭐</p>';return}c.innerHTML='';locales.forEach(l=>{let img=l.logoUrl||l.galeria?.[0]||'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=300';c.innerHTML+=`<div style="background:#fff;color:#000;border-radius:10px;overflow:hidden"><img src="${img}" style="width:100%;height:80px;object-fit:cover"><div style="padding:6px"><strong>${l.nombre||'Local Premium'}</strong><br><small>${l.direccion||''}</small><br><button style="width:100%;padding:6px;margin-top:4px;background:#7c3aed;color:#fff;border:0;border-radius:8px;font-size:11px" onclick="location.href='./cliente.html?local=${l.id||l.celu}&src=landing'">Reservar</button></div></div>`})}
+function showVideo(t){document.getElementById('vid-local').style.display=t==='local'?'flex':'none';document.getElementById('vid-cliente').style.display=t==='cliente'?'flex':'none';document.getElementById('vt-local').style.background=t==='local'?'#fff':'rgba(255,255,255,0.08)';document.getElementById('vt-local').style.color=t==='local'?'#4f2bd9':'#fff';document.getElementById('vt-cliente').style.background=t==='cliente'?'#fff':'rgba(255,255,255,0.08)';document.getElementById('vt-cliente').style.color=t==='cliente'?'#4f2bd9':'#fff'}
+let iv1=null,iv2=null;
+function initSliders(){
+let s1=document.querySelectorAll('#wrap-locales.slide');
+let s2=document.querySelectorAll('#wrap-clientes.slide');
+if(iv1)clearInterval(iv1);if(iv2)clearInterval(iv2);
+let i1=0,i2=0;
+if(s1.length>1){iv1=setInterval(()=>{s1[i1].classList.remove('active');i1=(i1+1)%s1.length;s1[i1].classList.add('active')},3500)}
+if(s2.length>1){iv2=setInterval(()=>{s2[i2].classList.remove('active');i2=(i2+1)%s2.length;s2[i2].classList.add('active')},3800)}
+}
+function renderPlanes(planes){let cont=document.getElementById('plans-container');if(!cont||!planes)return;cont.innerHTML='';let orden=['casa','base','medio','premium'];orden.forEach(k=>{let p=planes[k];if(!p)return;let isCasa=k==='casa';let pt=p.tachado||p.t||'';let pp=p.precio||p.p||p.promo||'';let lim=p.limite||p.cupos||0;let agot=p.restantes!==undefined&&p.restantes<=0;let rec=k==='medio';let bg=isCasa?'#f0fdf4':rec?'#2e1a8a':'#f5f3ff';let col=isCasa?'#1e1b4b':rec?'#fff':'#1e1b4b';let border=isCasa?'2px solid #22c55e':rec?'2px solid #fde047':'2px solid transparent';let html=`<div style="background:${bg};color:${col};border-radius:16px;padding:16px;text-align:center;position:relative;border:${border};flex:1;min-width:280px">${rec||isCasa?`<div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:${isCasa?'#22c55e':'#fde047'};color:${isCasa?'#fff':'#422006'};font-size:9px;font-weight:800;padding:3px 10px;border-radius:12px">${isCasa?'IDEAL CASA':'RECOMENDADO'}</div>`:''}<h3 style="font-size:15px;font-weight:700">${isCasa?'🏠 ':''}${k.toUpperCase()}</h3>${pt?`<div style="font-size:12px;text-decoration:line-through;opacity:0.6">$${pt}</div>`:''}<div style="font-size:30px;font-weight:800;margin:6px 0">$${pp}<small style="font-size:12px">${isCasa?' por reserva':'/mes'}</small></div><p style="font-size:11px;opacity:0.7;margin-bottom:10px">${isCasa?'Para los que trabajan desde su hogar':p.desc||''}</p><ul style="font-size:11px;text-align:left;list-style:none;margin:8px 0"><li>${isCasa?'Pago por uso, sin mes':`Hasta ${lim} reservas`}</li><li>Opción DNI opcional</li></ul><button style="width:100%;padding:9px;border-radius:10px;border:1.5px solid ${isCasa?'#22c55e':rec?'#fde047':'#6d28d9'};background:${isCasa?'#22c55e':rec?'#fde047':'#fff'};color:${isCasa?'#fff':rec?'#1e1b4b':'#6d28d9'};font-weight:700;font-size:12px;cursor:pointer" ${agot?'disabled':''} onclick="redir('local','${k}')">${agot?'AGOTADO':'Empezar'}</button></div>`;cont.innerHTML+=html})}
+function renderPremium(arr){let c=document.getElementById('premium-container');let countEl=document.getElementById('locCount');if(countEl)countEl.innerText=arr.length?`${arr.length} premium`:'';if(!c)return;if(!arr.length){c.innerHTML='<p style="color:#888;font-size:11px">Aún no hay locales premium</p>';return}c.innerHTML='';arr.forEach(l=>{let img=l.logoUrl||l.galeria?.[0]||'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=300';c.innerHTML+=`<div style="background:#fff;color:#000;border-radius:10px;overflow:hidden"><img src="${img}" style="width:100%;height:80px;object-fit:cover"><div style="padding:6px"><strong>${l.nombre||'Local Premium'}</strong><br><small>${l.direccion||''}</small><br><button style="width:100%;padding:6px;margin-top:4px;background:#7c3aed;color:#fff;border:0;border-radius:8px;font-size:11px" onclick="location.href='./cliente.html?local=${l.id||l.celu}&src=landing'">Reservar</button></div></div>`})}
 function initRealtime(){
-db.doc('config/landing').onSnapshot(s=>{if(!s.exists)return;let d=s.data();let mant=document.getElementById('mant');if(mant)mant.style.display=d.mantenimiento?'block':'none';if(d.heroTitle)document.getElementById('h-title').innerHTML=d.heroTitle;if(d.heroSub)document.getElementById('h-sub').innerText=d.heroSub;if(d.galeriaLocales&&d.galeriaLocales.length){let w=document.getElementById('wrap-locales');w.innerHTML='';d.galeriaLocales.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="slide ${i==0?'active':''}">`});initSliders()}if(d.galeriaClientes&&d.galeriaClientes.length){let w=document.getElementById('wrap-clientes');w.innerHTML='';d.galeriaClientes.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="slide ${i==0?'active':''}">`});initSliders()}});
-db.doc('config/planes').onSnapshot(s=>{if(!s.exists)return;renderPlanes(s.data())});
-db.doc('config/cobros').onSnapshot(s=>{if(!s.exists)return;let d=s.data();let wsp=document.getElementById('c-wsp');let email=document.getElementById('c-email');if(wsp&&d.whatsapp)wsp.innerText=d.whatsapp;if(email&&d.email)email.innerText=d.email;let extra=document.getElementById('c-extra');if(extra&&d.alias)extra.innerHTML=`Alias: ${d.alias} | CBU: ${d.cbu||''} | Titular: ${d.titular||''}`;let csub=document.getElementById('c-sub');if(csub&&d.contactSub)csub.innerText=d.contactSub;let f=document.getElementById('f-text');if(f&&d.footer)f.innerText=d.footer});
-db.collection('config').where('plan','==','Premium').where('apareceEnLanding','==',true).where('planActivo','==',true).onSnapshot(ss=>{let arr=[];ss.forEach(doc=>{let d=doc.data();let vence=d.planVence?.toDate?d.planVence.toDate():new Date(d.planVence||0);if(vence>new Date())arr.push({id:doc.id,...d})});renderPremium(arr)});
-db.doc('config/adm').onSnapshot(s=>{if(!s.exists)return;let d=s.data();let mant=document.getElementById('mant');if(mant&&d.mantenimientoOn)mant.style.display='block'});
+db.doc('config/landing').onSnapshot(s=>{
+if(!s.exists)return;let d=s.data();
+let mant=document.getElementById('mant');if(mant)mant.style.display=d.mantenimiento?'block':'none';
+if(d.heroTitle)document.getElementById('h-title').innerHTML=d.heroTitle;
+if(d.heroSub)document.getElementById('h-sub').innerText=d.heroSub;
+if(d.galeriaLocales&&d.galeriaLocales.length){let w=document.getElementById('wrap-locales');w.innerHTML='';d.galeriaLocales.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="slide ${i==0?'active':''}">`});initSliders()}
+if(d.galeriaClientes&&d.galeriaClientes.length){let w=document.getElementById('wrap-clientes');w.innerHTML='';d.galeriaClientes.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="slide ${i==0?'active':''}">`});initSliders()}
+if(d.videoLocalUrl){let v=document.getElementById('video-local');if(v&&v.src!==d.videoLocalUrl){v.src=d.videoLocalUrl;v.load()}}
+if(d.videoClienteUrl){let v=document.getElementById('video-cliente');if(v&&v.src!==d.videoClienteUrl){v.src=d.videoClienteUrl;v.load()}}
+});
+db.doc('config/planes').onSnapshot(s=>{if(s.exists)renderPlanes(s.data())});
+db.doc('config/cobros').onSnapshot(s=>{if(!s.exists)return;let d=s.data();let wsp=document.getElementById('c-wsp');let email=document.getElementById('c-email');if(wsp&&d.whatsapp){wsp.innerText=d.whatsapp;wsp.href='https://wa.me/'+d.whatsapp.replace(/[^0-9]/g,'')}if(email&&d.email){email.innerText=d.email;email.href='mailto:'+d.email}let extra=document.getElementById('c-extra');if(extra&&d.alias)extra.innerHTML=`Alias: ${d.alias} | CBU: ${d.cbu||''}`;let csub=document.getElementById('c-sub');if(csub&&d.contactSub)csub.innerText=d.contactSub;let f=document.getElementById('f-text');if(f&&d.footer)f.innerText=d.footer});
+db.collection('config').where('plan','==','Premium').onSnapshot(ss=>{let arr=[];ss.forEach(doc=>{let d=doc.data();if(d.apareceEnLanding&&d.planActivo)arr.push({id:doc.id,...d})});renderPremium(arr)});
 }
 initSliders();initRealtime();
-let animI=0;setInterval(()=>{let el=document.getElementById('anim-local');if(!el)return;animI=(animI+1)%3;el.innerHTML=animI==0?'📱 DEMO LOCAL<br>15s':animI==1?'✔️ DNI opcional<br>activado':'📲 Reserva entrante!'},2000)
 </script>
 </body>
 </html>
