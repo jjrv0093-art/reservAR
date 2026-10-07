@@ -58,18 +58,18 @@ header{position:sticky;top:0;z-index:99;background:#0f0b1eE6;backdrop-filter:blu
 </head>
 <body>
 <div id="mant" class="mantenimiento" style="display:none">Mantenimiento activo - Volvemos pronto</div>
-<header><div class="logo">📅 <span id="locCount" style="font-size:10px;background:var(--v);padding:2px 6px;border-radius:8px"></span></div>
+<header><div class="logo">📅 reservAR <span id="locCount" style="font-size:10px;background:var(--v);padding:2px 6px;border-radius:8px"></span></div>
 <div class="nav">
-<button class="active" onclick="showTab('inicio',this)">Inicio</button>
-<button onclick="showTab('como',this)">Como Funciona</button>
-<button onclick="showTab('planes',this)">Planes</button>
-<button onclick="showTab('contacto',this)">Contacto</button>
-<button onclick="redir('local')" style="background:var(--v);color:#fff;border:0;padding:6px 12px;border-radius:20px;font-weight:800">Iniciar sesión</button>
+<button class="active" onclick="showTab('inicio')">Inicio</button>
+<button onclick="showTab('como')">Como Funciona</button>
+<button onclick="showTab('planes')">Planes</button>
+<button onclick="showTab('contacto')">Contacto</button>
+<button onclick="location.href='/local.html?src=landing'" style="background:var(--v);color:#fff">Iniciar sesión</button>
 </div></header>
 
 <div id="t-inicio" class="tab active">
 <div class="hero"><h1 id="h-title">reservAR<br><span>tu lugar tu momento</span></h1><p id="h-sub">Gestiona tu local y reservas de forma simple y segura</p>
-<button class="btn btn-w" onclick="redir('local')" id="h-btn">Soy Local - Crear cuenta</button></div>
+<button class="btn btn-w" onclick="location.href='/local.html?src=landing'" id="h-btn">Soy Local - Crear cuenta</button></div>
 <div class="grid2">
 <div class="card"><span class="badge">LOCALES</span>
 <div class="slider" id="wrap-locales">
@@ -78,7 +78,7 @@ header{position:sticky;top:0;z-index:99;background:#0f0b1eE6;backdrop-filter:blu
 <div class="slide"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&q=80" alt="barber3"></div>
 </div>
 <div class="list"><p style="color:#7cf">🛡️ Tu seguridad nos importa. Solicita DNI en tus reservas y sentite más seguro (opcional)</p>
-<button class="btn btn-w" onclick="redir('local')">Soy Local - Crear cuenta</button>
+<button class="btn btn-w" onclick="location.href='/local.html?src=landing'">Soy Local - Crear cuenta</button>
 <ul><li>✅ Gestioná turnos 24/7</li><li>✅ Notificaciones automáticas</li><li>✅ Opción pedir DNI para seguridad</li></ul>
 </div></div>
 <div class="card" style="background:#60a5fa22;border-color:#60a5fa44"><span class="badge" style="background:var(--c);color:#000">CLIENTES</span>
@@ -87,7 +87,7 @@ header{position:sticky;top:0;z-index:99;background:#0f0b1eE6;backdrop-filter:blu
 <div class="slide"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=600&q=80" alt="cliente2"></div>
 <div class="slide"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=80" alt="cliente3"></div>
 </div><div class="list"><p style="color:#000">Reservá en segundos, seguro y con DNI opcional</p>
-<button class="btn btn-w" onclick="redir('cliente')">Soy Cliente - Reservar</button>
+<button class="btn btn-w" onclick="location.href='/cliente.html?src=landing'">Soy Cliente - Reservar</button>
 <ul style="color:#000"><li>✅ Reservá en 10 segundos</li><li>✅ Elegí tu local de confianza</li><li>✅ Más seguridad si piden DNI</li></ul>
 </div></div>
 </div>
@@ -120,10 +120,9 @@ header{position:sticky;top:0;z-index:99;background:#0f0b1eE6;backdrop-filter:blu
 <script>
 const firebaseConfig={apiKey:"AIzaSyA1x...",authDomain:"reservar-cb70d.firebaseapp.com",projectId:"reservar-cb70d"};
 firebase.initializeApp(firebaseConfig);const db=firebase.firestore();
-function redir(tipo){var p=new URLSearchParams(window.location.search);var src=p.get('src')||'landing';var dest=tipo==='local'?'/local.html':'/cliente.html';window.location.href=dest+'?src='+src}
-function showTab(id,el){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));var tg=document.getElementById('t-'+id);if(tg)tg.classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));var btn=el||(typeof event!=='undefined'?event.target:null);if(btn)btn.classList.add('active');window.scrollTo(0,0)}
+function showTab(id){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById('t-'+id).classList.add('active');document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));event.target.classList.add('active')}
 function showVideo(t){document.getElementById('v-local').style.display=t==='local'?'grid':'none';document.getElementById('v-cliente').style.display=t==='cliente'?'grid':'none'}
-function initSliders(){setInterval(()=>{let a=document.querySelector('#wrap-locales.slide.active');let slides=document.querySelectorAll('#wrap-locales.slide');if(!a||!slides.length)return;let n=a.nextElementSibling;if(!n||!n.classList.contains('slide'))n=slides[0];a.classList.remove('active');n.classList.add('active')},3500);setInterval(()=>{let a=document.querySelector('#wrap-clientes.slide.active');let slides=document.querySelectorAll('#wrap-clientes.slide');if(!a||!slides.length)return;let n=a.nextElementSibling;if(!n||!n.classList.contains('slide'))n=slides[0];a.classList.remove('active');n.classList.add('active')},3800)}
+function initSliders(){setInterval(()=>{let a=document.querySelector('#wrap-locales.slide.active');let n=a.nextElementSibling;if(!n||!n.classList.contains('slide'))n=document.querySelector('#wrap-locales.slide');a.classList.remove('active');n.classList.add('active')},3500);setInterval(()=>{let a=document.querySelector('#wrap-clientes.slide.active');let n=a.nextElementSibling;if(!n||!n.classList.contains('slide'))n=document.querySelector('#wrap-clientes.slide');a.classList.remove('active');n.classList.add('active')},3800)}
 function renderPlanes(planes){let cont=document.getElementById('plans-container');cont.innerHTML='';let orden=['casa','base','medio','premium'];orden.forEach(k=>{let p=planes[k];if(!p)return;let isCasa=k==='casa';let precioT=p.tachado||p.t||'';let precioP=p.precio||p.p||p.promo||'';let lim=p.limite||p.cupos||0;let agot=p.restantes!==undefined&&p.restantes<=0;let rec=p.destacado===k||k==='medio';let html=`<div class="plan ${rec?'rec':''}">${rec?'<span class="tag">RECOMENDADO</span>':''}<h3>${isCasa?'🏠':''} ${k.toUpperCase()}</h3>${precioT?`<div class="tach">$${precioT}</div>`:''}<div class="price">$${precioP}<small>${isCasa?' por reserva':'/mes'}</small></div><p style="font-size:11px;color:#666">${isCasa?'Para los que trabajan desde su hogar':p.desc||''}</p><ul style="font-size:12px;text-align:left;margin:8px 0"><li>${isCasa?'Pago por uso, sin mes':''}</li><li>${isCasa?'Ideal freelance / casa':`Hasta ${lim} reservas`}</li><li>${k==='medio'?'Pedir DNI + estadísticas':'Opción DNI opcional'}</li></ul><button class="btn ${isCasa?'btn-c':rec?'btn-c':'btn-v'}" ${agot?'disabled':''} onclick="location.href='/local.html?plan=${k}&src=landing'">${agot?'AGOTADO':'Empezar con '+(isCasa?'Casa':'ahora')}</button></div>`;cont.innerHTML+=html})}
 function renderPremium(locales){let c=document.getElementById('premium-container');if(!locales.length){c.innerHTML='<p style="color:#888">Aún no hay locales premium, sé el primero en destacarte ⭐</p>';return}c.innerHTML='';locales.forEach(l=>{let img=l.logoUrl||l.galeria?.[0]||'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=300';c.innerHTML+=`<div class="premium-card"><img src="${img}"><div style="padding:8px"><strong>${l.nombre||'Local Premium'}</strong><br><small>${l.direccion||''}</small><br><button class="btn btn-v" style="padding:6px;margin-top:4px" onclick="location.href='/cliente.html?local=${l.id||l.celu}&src=landing'">Reservar</button></div></div>`})}function initRealtime(){
 db.doc('config/landing').onSnapshot(s=>{if(!s.exists)return;let d=s.data();if(d.mantenimiento){document.getElementById('mant').style.display='block'}else{document.getElementById('mant').style.display='none'}if(d.heroTitle)document.getElementById('h-title').innerHTML=d.heroTitle;if(d.heroSub)document.getElementById('h-sub').innerText=d.heroSub;if(d.heroBtn)document.getElementById('h-btn').innerText=d.heroBtn;if(d.contactSub)document.getElementById('c-sub').innerText=d.contactSub;if(d.footer)document.getElementById('f-text').innerText=d.footer;if(d.galeriaLocales&&d.galeriaLocales.length){let w=document.getElementById('wrap-locales');w.innerHTML='';d.galeriaLocales.forEach((u,i)=>{w.innerHTML+=`<div class="slide ${i==0?'active':''}"><img src="${u}"></div>`}) }if(d.galeriaClientes&&d.galeriaClientes.length){let w=document.getElementById('wrap-clientes');w.innerHTML='';d.galeriaClientes.forEach((u,i)=>{w.innerHTML+=`<div class="slide ${i==0?'active':''}"><img src="${u}"></div>`}) }});
