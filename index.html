@@ -1,118 +1,175 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Reservar La Plata</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>reservAR - Tu lugar tu momento</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,system-ui,Arial}
-body{background:#0a0a0a;color:#fff;overflow-x:hidden}
-.hero{position:relative;height:62vh;overflow:hidden;border-radius:0 0 22px 22px;background:#111}
-.slide{position:absolute;inset:0;opacity:0;transition:opacity 0.9s ease;will-change:opacity}
+:root{--v:#7c3aed;--c:#60a5fa;--bg:#0f0b1e;--card:#1a1433;--b:#2a2450}
+*{box-sizing:border-box;margin:0;padding:0;font-family:Inter,sans-serif}
+body{background:var(--bg);color:#fff}
+header{position:sticky;top:0;z-index:99;background:#0f0b1eE6;backdrop-filter:blur(12px);border-bottom:1px solid var(--b);padding:10px 12px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.logo{display:flex;align-items:center;gap:6px;font-weight:800;font-size:14px;min-width:40px}
+.logo span#locCount{font-size:10px;background:var(--v);padding:2px 6px;border-radius:8px}
+.nav{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.nav button{padding:6px 12px;border-radius:20px;border:1px solid var(--b);background:transparent;color:#aaa;cursor:pointer;font-size:12px}
+.nav button.active{background:#fff;color:#000;font-weight:700}
+.tab{display:none;padding:16px;max-width:1100px;margin:auto}
+.tab.active{display:block}
+.hero{text-align:center;padding:22px 0;max-width:720px;margin:auto}
+.hero h1{font-size:30px;line-height:1.1;font-weight:800}
+.hero h1 span{background:linear-gradient(90deg,var(--v),var(--c));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block}
+.hero p{color:#aaa;margin:10px 0;font-size:13px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px}
+@media(min-width:900px){.grid2{grid-template-columns:1fr 1fr;gap:18px}.hero h1{font-size:40px}.card.slider{height:260px}}
+@media(max-width:700px){.grid2{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--b);border-radius:18px;overflow:hidden}
+.badge{font-size:10px;padding:4px 8px;border-radius:10px;margin:10px;display:inline-block;font-weight:800;letter-spacing:.5px}
+.badge.v{background:var(--v);color:#fff}
+.badge.c{background:var(--c);color:#000}
+.slider{position:relative;height:200px;overflow:hidden;background:#000}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity.6s}
 .slide.active{opacity:1}
-.slide img,.slide video{width:100%;height:100%;object-fit:cover}
-.overlay{position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,0.82), rgba(0,0,0,0.15) 55%, rgba(0,0,0,0.05))}
-.heroText{position:absolute;bottom:30px;left:22px;right:22px;z-index:2}
-.heroText h1{font-size:34px;line-height:1.08;font-weight:900;letter-spacing:-0.5px;text-shadow:0 2px 16px rgba(0,0,0,0.5)}
-.heroText p{margin-top:8px;color:#e5e5e5;font-size:14px}
-.dots{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:3}
-.dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.35);transition:all 0.3s;cursor:pointer}
-.dot.active{background:#fff;width:22px;border-radius:10px}
-.container{max-width:1100px;margin:auto;padding:20px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:18px}
-.card{background:#161616;border-radius:18px;padding:12px;border:1px solid #222;cursor:pointer;transition:0.2s}
-.card img{width:100%;height:240px;object-fit:cover;border-radius:14px;background:#222}
-.card:hover{border-color:#333;transform:translateY(-2px)}
-.btn{width:100%;margin-top:10px;background:#fff;color:#000;padding:14px;border-radius:12px;font-weight:900;border:none;cursor:pointer;font-size:15px;transition:0.15s}
-.btn:active{transform:scale(0.98)}
-.btn2{width:100%;margin-top:10px;background:#1a1a1a;color:#fff;padding:14px;border-radius:12px;font-weight:800;border:1px solid #2a2a2a;cursor:pointer}
-.priceBox{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:22px}
-.price{background:#111;border:1px solid #222;border-radius:16px;padding:18px;text-align:center;transition:0.2s}
-.price:hover{border-color:#333}
-.realGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:22px}
-.logo{position:absolute;top:16px;left:16px;z-index:4;background:#fff;color:#000;padding:8px 14px;border-radius:20px;font-weight:900;font-size:11px;letter-spacing:0.6px}
-.badge{position:absolute;top:16px;right:16px;z-index:4;background:rgba(0,0,0,0.55);backdrop-filter:blur(10px);padding:8px 12px;border-radius:20px;font-size:12px;border:1px solid rgba(255,255,255,0.18)}
-.footer{margin-top:40px;padding:24px;text-align:center;color:#666;font-size:13px;border-top:1px solid #1a1a1a}
-.section{margin-top:28px}
-.kicker{font-size:11px;letter-spacing:1.2px;color:#999;font-weight:800;margin-bottom:8px}
-@media(max-width:700px){.grid,.priceBox,.realGrid{grid-template-columns:1fr}.hero{height:52vh}.heroText h1{font-size:28px}}
+.slider img,.slider video{width:100%;height:100%;object-fit:cover}
+.btn{width:100%;padding:12px;border-radius:12px;border:0;font-weight:800;cursor:pointer;margin-top:8px}
+.btn-w{background:#fff;color:#000}.btn-v{background:var(--v);color:#fff}
+.list{padding:12px;font-size:12px;color:#bbb}
+.list li{margin:6px 0;list-style:none}
+.sec{margin:14px 0;padding:14px;background:var(--card);border:1px solid var(--b);border-radius:16px}
+.step{display:flex;gap:10px;background:#fff;color:#000;border-radius:14px;padding:12px;margin:8px 0}
+.step b{background:var(--v);color:#fff;width:28px;height:28px;display:flex;align-items:center;justify-content:center;border-radius:50%;flex-shrink:0}
+.demo{display:grid;grid-template-columns:110px 1fr;gap:10px;align-items:center;background:#fff;color:#000;border-radius:14px;padding:10px;margin:10px 0}
+.demo.phone{width:100px;height:160px;background:#000;border-radius:12px;position:relative;overflow:hidden;border:3px solid #333}
+.phone-screen{position:absolute;inset:0;background:linear-gradient(#1a1433,#7c3aed);display:flex;flex-direction:column}
+.phone-screen.bar{height:14px;background:#000;display:flex;justify-content:space-between;padding:2px 4px;font-size:8px;color:#fff}
+.mini{height:6px;background:#fff3;border-radius:4px}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:700px){.plans{grid-template-columns:1fr}}
+@media(min-width:900px){.plans{grid-template-columns:repeat(4,1fr)}}
+.plan{background:#fff;color:#000;border-radius:18px;padding:14px;text-align:center;position:relative;border:2px solid transparent}
+.plan.rec{border-color:#facc15}
+.plan.tag{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:#facc15;color:#000;font-size:10px;padding:2px 10px;border-radius:10px;font-weight:800}
+.plan h3{font-size:16px}.plan.tach{text-decoration:line-through;color:#999;font-size:13px}
+.plan.price{font-size:26px;font-weight:800}
+.contact{display:flex;justify-content:space-between;background:#ffffff12;border:1px solid var(--b);padding:12px;border-radius:12px;margin:8px 0;flex-wrap:wrap;gap:8px}
+.premium-list{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+@media(min-width:900px){.premium-list{grid-template-columns:repeat(4,1fr)}}
+.premium-card{background:#fff;color:#000;border-radius:12px;overflow:hidden;font-size:12px}
+.premium-card img{width:100%;height:90px;object-fit:cover}
+.mantenimiento{background:#ff0040;color:#fff;text-align:center;padding:10px;font-weight:800;position:sticky;top:0;z-index:100}
 </style>
 </head>
 <body>
-<div class="hero" id="hero">
-<div class="logo">RESERVAR • LA PLATA</div>
-<div class="badge">● Online • reservar-cb70d</div>
-<div class="slide active"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=1200" alt="barber"><div class="overlay"></div></div>
-<div class="slide"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?q=80&w=1200" alt="salon"><div class="overlay"></div></div>
-<div class="slide"><video autoplay muted loop playsinline src="https://videos.pexels.com/video-files/3998308/3998308-hd_1080_1080_25fps.mp4"></video><div class="overlay"></div></div>
-<div class="slide"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?q=80&w=1200" alt="style"><div class="overlay"></div></div>
-<div class="heroText"><h1>Reservá en La Plata<br>en segundos</h1><p>Barberías, centros y locales reales cerca tuyo</p></div>
-<div class="dots" id="dots"></div>
+<div id="mant" class="mantenimiento" style="display:none">Mantenimiento activo - Volvemos pronto</div>
+<header><div class="logo">📅 <span id="locCount"></span></div>
+<div class="nav">
+<button class="active" onclick="showTab('inicio',this)">Inicio</button>
+<button onclick="showTab('como',this)">Como Funciona</button>
+<button onclick="showTab('planes',this)">Planes</button>
+<button onclick="showTab('contacto',this)">Contacto</button>
+<button onclick="redir('local')" style="background:var(--v);color:#fff;border:0;padding:6px 12px;border-radius:20px;font-weight:800">Iniciar sesión</button>
+</div></header>
+<div id="t-inicio" class="tab active">
+<div class="hero"><h1 id="h-title">reservAR<br><span>tu lugar tu momento</span></h1><p id="h-sub">Gestiona tu local y reservas de forma simple y segura</p>
+<button class="btn btn-w" onclick="redir('local')" id="h-btn">Soy Local - Crear cuenta</button></div>
+<div class="grid2">
+<div class="card"><span class="badge v">LOCALES</span>
+<div class="slider" id="wrap-locales">
+<div class="slide active"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=600&q=80" alt="local1"></div>
+<div class="slide"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=600&q=80" alt="local2"></div>
+<div class="slide"><img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=600&q=80" alt="local3"></div>
 </div>
-<div class="container">
-<div class="section">
-<div class="kicker">EMPEZÁ AHORA</div>
-<h2>¿Qué querés hacer hoy?</h2>
-<div class="grid">
-<div class="card" onclick="location.href='/local.html'"><img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b97?q=80&w=800"><button class="btn">Soy Local - Crear cuenta</button><button class="btn2">Publicar mi local</button></div>
-<div class="card" onclick="location.href='/cliente.html'"><img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800"><button class="btn">Soy Cliente - Reservar</button><button class="btn2">Ver locales</button></div>
+<div class="list"><p style="color:#93c5fd">🛡️ Tu seguridad nos importa. Solicita DNI en tus reservas y sentite más seguro (opcional)</p>
+<button class="btn btn-w" onclick="redir('local')">Soy Local - Crear cuenta</button>
+<ul><li>✅ Gestioná turnos 24/7</li><li>✅ Notificaciones automáticas</li><li>✅ Opción pedir DNI para seguridad</li></ul></div></div>
+<div class="card" style="background:linear-gradient(135deg,#60a5fa22,#7c3aed22);border-color:#60a5fa44"><span class="badge c">CLIENTES</span>
+<div class="slider" id="wrap-clientes">
+<div class="slide active"><img src="https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?w=600&q=80" alt="cliente1"></div>
+<div class="slide"><img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" alt="cliente2"></div>
+<div class="slide"><img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=600&q=80" alt="cliente3"></div>
+</div>
+<div class="list"><p style="color:#bfdbfe;font-weight:600">Reservá en segundos, sin llamadas ni esperas</p>
+<button class="btn btn-v" onclick="redir('cliente')">Soy Cliente - Reservar</button>
+<ul style="color:#cbd5e1"><li>✅ Reservá 24/7 al instante</li><li>✅ Confirmación inmediata</li><li>✅ Recordatorios automáticos</li></ul></div></div>
 </div>
 </div>
-<div class="section">
-<div class="kicker">PLANES</div>
-<div class="priceBox">
-<div class="price"><h3>Plan Local</h3><p style="font-size:24px;margin:10px 0;font-weight:900">$8.990/mes</p><small>Agenda + reservas ilimitadas + galería foto/video + WhatsApp</small></div>
-<div class="price"><h3>Plan Inicio</h3><p style="font-size:24px;margin:10px 0;font-weight:900">$5.990/mes</p><small>Ideal para empezar, sin comisiones</small></div>
+<div id="t-como" class="tab"><div class="sec"><h2>Cómo funciona reservAR</h2><p style="color:#aaa;font-size:13px">3 pasos simples</p>
+<div class="step"><b>1</b><div><strong>Registrá tu local</strong><p style="font-size:12px;color:#555">Crea tu cuenta en 2 minutos</p></div></div>
+<div class="step"><b>2</b><div><strong>Configurá servicios</strong><p style="font-size:12px;color:#555">Precios, horarios y duración</p></div></div>
+<div class="step"><b>3</b><div><strong>Recibí reservas</strong><p style="font-size:12px;color:#555">Tus clientes reservan 24/7</p></div></div>
 </div>
+<div class="sec"><h3>Vista previa</h3>
+<div class="demo"><div class="phone"><div class="phone-screen"><div class="bar"><span>9:41</span><span>•••</span></div><div style="padding:8px;display:grid;gap:6px"><div class="mini" style="width:90%"></div><div class="mini" style="width:70%"></div><div style="height:40px;background:#fff2;border-radius:8px"></div><div style="height:40px;background:#fff2;border-radius:8px"></div></div></div></div><div><strong>App simple para tus clientes</strong><p style="font-size:12px;color:#aaa">Reservan en 3 clics, sin registrarse</p></div></div>
+</div></div>
+<div id="t-planes" class="tab"><div class="sec"><h2 style="text-align:center">Planes para cada necesidad</h2><p id="planes-sub" style="text-align:center;color:#aaa;font-size:13px">Empezá gratis, crecé cuando quieras</p>
+<div class="plans" id="planes-wrap">
+<div class="plan"><h3>Gratis</h3><p class="price">$0</p><p style="font-size:12px">Para empezar</p><ul style="text-align:left;font-size:12px;margin:10px 0"><li>✓ 20 reservas/mes</li><li>✓ 1 servicio</li></ul><button class="btn btn-v" onclick="redir('local')">Empezar gratis</button></div>
+<div class="plan rec"><span class="tag">Más popular</span><h3>Pro</h3><p class="tach">$15.000</p><p class="price">$9.900</p><p style="font-size:12px">/mes</p><ul style="text-align:left;font-size:12px;margin:10px 0"><li>✓ Reservas ilimitadas</li><li>✓ Servicios ilimitados</li><li>✓ Recordatorios WhatsApp</li></ul><button class="btn btn-v" onclick="redir('local')">Elegir Pro</button></div>
+<div class="plan"><h3>Premium</h3><p class="price">$19.900</p><p style="font-size:12px">/mes</p><ul style="text-align:left;font-size:12px;margin:10px 0"><li>✓ Todo Pro +</li><li>✓ Multi sucursal</li><li>✓ Soporte prioritario</li></ul><button class="btn btn-w" style="background:#000;color:#fff" onclick="redir('local')">Elegir Premium</button></div>
+<div class="plan"><h3>Enterprise</h3><p class="price">A medida</p><ul style="text-align:left;font-size:12px;margin:10px 0"><li>✓ API propia</li><li>✓ Marca blanca</li></ul><button class="btn btn-w" style="background:#000;color:#fff" onclick="redir('local')">Contactar</button></div>
+</div></div></div>
+<div id="t-contacto" class="tab"><div class="sec"><h2>Contacto</h2><div id="contact-wrap">
+<div class="contact"><span>📱 WhatsApp</span><strong id="c-wsp">+54 9 11 1234-5678</strong></div>
+<div class="contact"><span>📸 Instagram</span><strong id="c-ig">@reservar.app</strong></div>
+<div class="contact"><span>✉️ Email</span><strong id="c-mail">hola@reservar.com</strong></div>
 </div>
-<div class="section">
-<div class="kicker">LOCALES REALES</div>
-<h3>Publicados ahora en La Plata</h3>
-<div id="galeriaReal" class="realGrid"></div>
-</div>
-</div>
-<div class="footer">Reservar La Plata © 2026 - Hecho en La Plata - Firebase reservar-cb70d<br>Soporte: jjrv.0093@gmail.com</div>
-<script type="module">
-import { db } from './firebase-config.js';
-import { collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
-const slides=document.querySelectorAll('.slide');
-const dotsEl=document.getElementById('dots');
-slides.forEach((_,i)=>{
-const d=document.createElement('div');
-d.className='dot'+(i==0?' active':'');
-d.onclick=()=>go(i);
-dotsEl.appendChild(d);
-});
-const dots=document.querySelectorAll('.dot');
-let idx=0;
-let timer;
-function go(n){
-slides[idx].classList.remove('active');
-dots[idx].classList.remove('active');
-idx=n;
-slides[idx].classList.add('active');
-dots[idx].classList.add('active');
-clearInterval(timer);
-timer=setInterval(next,3000);
+<h3 style="margin-top:16px">Locales destacados</h3><div class="premium-list" id="premium-list"></div>
+</div></div>
+<script>
+function showTab(id,el){
+document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+var target=document.getElementById('t-'+id);
+if(target) target.classList.add('active');
+document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+if(el) el.classList.add('active');
+window.scrollTo(0,0);
 }
-function next(){go((idx+1)%slides.length);}
-timer=setInterval(next,3000);
-onSnapshot(collection(db,'config'), snap=>{
-const box=document.getElementById('galeriaReal');
-box.innerHTML='';
-snap.forEach(docu=>{
-const id=docu.id;
-if(['planes','landing','cobros','branding','adm','promos','gastos','logs'].includes(id)) return;
-const data=docu.data();
-if(data.visible!=true) return;
-if(!data.heroUrl) return;
-if(data.heroUrl.includes('.mp4')){
-box.innerHTML+=`<video src="${data.heroUrl}" autoplay muted loop playsinline style="width:100%;height:170px;object-fit:cover;border-radius:12px;background:#111"></video>`;
-}else{
-box.innerHTML+=`<img src="${data.heroUrl}" style="width:100%;height:170px;object-fit:cover;border-radius:12px;background:#111">`;
+function redir(tipo){
+var params=new URLSearchParams(window.location.search);
+var src=params.get('src')||'landing';
+var dest=tipo==='local'?'local.html':'cliente.html';
+window.location.href=dest+'?src='+src;
 }
-});
-});
+function initSliders(){
+function startSlider(selector){
+var slides=document.querySelectorAll(selector+'.slide');
+if(!slides.length) return;
+var i=0;
+setInterval(function(){
+slides[i].classList.remove('active');
+i=(i+1)%slides.length;
+slides[i].classList.add('active');
+},3000);
+}
+startSlider('#wrap-locales');
+startSlider('#wrap-clientes');
+}
+function loadAdm(){
+try{
+var mant=localStorage.getItem('adm_mantenimiento');
+if(mant==='1') document.getElementById('mant').style.display='block';
+var title=localStorage.getItem('adm_title');
+if(title) document.getElementById('h-title').innerHTML=title;
+var sub=localStorage.getItem('adm_sub');
+if(sub) document.getElementById('h-sub').textContent=sub;
+var btn=localStorage.getItem('adm_btn');
+if(btn) document.getElementById('h-btn').textContent=btn;
+var count=localStorage.getItem('adm_locCount');
+if(count) document.getElementById('locCount').textContent=count+' locales';
+else document.getElementById('locCount').textContent='127 locales';
+var wsp=localStorage.getItem('adm_wsp');
+if(wsp) document.getElementById('c-wsp').textContent=wsp;
+var ig=localStorage.getItem('adm_ig');
+if(ig) document.getElementById('c-ig').textContent=ig;
+var mail=localStorage.getItem('adm_mail');
+if(mail) document.getElementById('c-mail').textContent=mail;
+var premium=localStorage.getItem('adm_premium');
+var wrap=document.getElementById('premium-list');
+if(premium){wrap.innerHTML=premium;}
+else{wrap.innerHTML='<div class="premium-card"><img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=300"><div style="padding:6px"><strong>Barbería Centro</strong><p>La Plata</p></div></div><div class="premium-card"><img src="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=300"><div style="padding:6px"><strong>Estudio Luna</strong><p>City Bell</p></div></div>';}
+}catch(e){}
+}
+document.addEventListener('DOMContentLoaded',function(){loadAdm();initSliders();});
 </script>
 </body>
 </html>
