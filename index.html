@@ -14,30 +14,30 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:10px 1
 .nav-links span{cursor:pointer;padding:5px 10px;border-radius:20px;transition:.2s}
 .nav-links span.active{background:#fff;color:#4f2bd9;opacity:1;font-weight:700}
 .btn-login{border:1px solid rgba(255,255,255,0.6);border-radius:20px;padding:5px 12px;font-size:11px;background:transparent;color:#fff;cursor:pointer}
-.sec{width:95%;max-width:1300px;margin:0 auto;display:none;flex-direction:column;align-items:center;animation:fade .25s ease}
+.sec{width:95%;max-width:1300px;margin:0 auto;display:none;flex-direction:column;align-items:center;animation:fade.25s ease}
 .sec.active{display:flex}
 @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
 .hero{text-align:center;padding:12px 16px 8px;width:100%}
 .hero h1{font-size:38px;font-weight:800;letter-spacing:-1px;line-height:1}
 .hero p{color:#b8a0ff;font-size:14px;margin-top:4px}
 .cards{display:flex;flex-direction:column;gap:14px;padding:12px 0;width:100%;justify-content:center}
-.card{border-radius:18px;padding:14px;position:relative;overflow:hidden;cursor:pointer;transition:transform .2s;flex:1;min-width:300px}
+.card{border-radius:18px;padding:14px;position:relative;overflow:hidden;cursor:pointer;transition:transform.2s;flex:1;min-width:300px}
 .card-locales{background:linear-gradient(135deg,#7c3aed,#4f2bd9)}
 .card-clientes{background:linear-gradient(135deg,#93c5fd,#60a5fa);color:#1e1b4b}
 .badge-top{display:inline-block;background:rgba(255,255,255,0.25);padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:8px}
 .img-wrap{width:100%;height:170px;border-radius:12px;overflow:hidden;background:#0003;margin-bottom:10px;position:relative}
-.img-wrap .slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease}
-.img-wrap .slide.active{opacity:1}
+.img-wrap.slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity.6s ease}
+.img-wrap.slide.active{opacity:1}
 .seguridad{background:rgba(255,255,255,0.12);border:1px dashed rgba(255,255,255,0.35);border-radius:10px;padding:7px 10px;font-size:11px;font-weight:600;margin-bottom:10px;display:flex;gap:6px;align-items:center}
 .btn-card{width:100%;padding:11px;border-radius:10px;border:none;font-weight:700;font-size:13px;margin-bottom:10px;cursor:pointer}
-.card-locales .btn-card{background:#fff;color:#4f2bd9}
-.card-clientes .btn-card{background:#1e40af;color:#fff}
+.card-locales.btn-card{background:#fff;color:#4f2bd9}
+.card-clientes.btn-card{background:#1e40af;color:#fff}
 .checks{list-style:none;display:flex;flex-direction:column;gap:5px;font-size:12px}
 .checks li::before{content:"✔";display:inline-grid;place-items:center;width:16px;height:16px;background:#22c55e;color:#fff;border-radius:50%;font-size:9px;margin-right:7px}
 .mantenimiento{background:#ff0040;color:#fff;text-align:center;padding:8px 12px;font-weight:800;font-size:12px;width:95%;max-width:1300px;margin:0 auto 8px;border-radius:10px;display:none}
 .como-carousel{width:100%;height:260px;border-radius:14px;overflow:hidden;position:relative;background:#000}
-.como-carousel .c-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s ease}
-.como-carousel .c-slide.active{opacity:1}
+.como-carousel.c-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity.6s ease}
+.como-carousel.c-slide.active{opacity:1}
 .como-overlay{position:absolute;bottom:0;left:0;right:0;padding:12px;background:linear-gradient(transparent,rgba(0,0,0,0.85));color:#fff;z-index:2}
 </style>
 </head>
@@ -149,19 +149,31 @@ function showTab(n,el){document.querySelectorAll('.sec').forEach(s=>s.classList.
 function openLogin(){document.getElementById('modalLogin').style.display='grid'}
 function closeLogin(){document.getElementById('modalLogin').style.display='none'}
 function showVideo(t){document.getElementById('vid-local').style.display=t==='local'?'flex':'none';document.getElementById('vid-cliente').style.display=t==='cliente'?'flex':'none';document.getElementById('vt-local').style.background=t==='local'?'#fff':'rgba(255,255,255,0.08)';document.getElementById('vt-local').style.color=t==='local'?'#4f2bd9':'#fff';document.getElementById('vt-cliente').style.background=t==='cliente'?'#fff':'rgba(255,255,255,0.08)';document.getElementById('vt-cliente').style.color=t==='cliente'?'#4f2bd9':'#fff'}
-let iv1=null,iv2=null,iv3=null,iv4=null;
-function initSliders(){
-if(iv1)clearInterval(iv1);if(iv2)clearInterval(iv2);if(iv3)clearInterval(iv3);if(iv4)clearInterval(iv4);
-const s1=document.querySelectorAll('#wrap-locales .slide');
-const s2=document.querySelectorAll('#wrap-clientes .slide');
-const s3=document.querySelectorAll('#como-carousel .c-slide');
-const s4=document.querySelectorAll('#como-carousel-cliente .c-slide');
-let i1=0,i2=0,i3=0,i4=0;
-if(s1.length>1){iv1=setInterval(()=>{s1[i1].classList.remove('active');i1=(i1+1)%s1.length;s1[i1].classList.add('active')},2800)}
-if(s2.length>1){iv2=setInterval(()=>{s2[i2].classList.remove('active');i2=(i2+1)%s2.length;s2[i2].classList.add('active')},3000)}
-if(s3.length>1){iv3=setInterval(()=>{s3[i3].classList.remove('active');i3=(i3+1)%s3.length;s3[i3].classList.add('active')},3200)}
-if(s4.length>1){iv4=setInterval(()=>{s4[i4].classList.remove('active');i4=(i4+1)%s4.length;s4[i4].classList.add('active')},3400)}
+
+let _carousels=[];
+function startOneCarousel(selector, intervalMs){
+  const slides = document.querySelectorAll(selector);
+  if(!slides.length) return null;
+  let idx = 0;
+  slides.forEach((s,i)=>s.classList.toggle('active', i===0));
+  const iv = setInterval(()=>{
+    const fresh = document.querySelectorAll(selector);
+    if(!fresh.length) return;
+    fresh[idx % fresh.length].classList.remove('active');
+    idx = (idx + 1) % fresh.length;
+    fresh[idx].classList.add('active');
+  }, intervalMs);
+  return iv;
 }
+function initSliders(){
+  _carousels.forEach(iv=>{ if(iv) clearInterval(iv); });
+  _carousels=[];
+  _carousels.push(startOneCarousel('#wrap-locales.slide', 2800));
+  _carousels.push(startOneCarousel('#wrap-clientes.slide', 3000));
+  _carousels.push(startOneCarousel('#como-carousel.c-slide', 3200));
+  _carousels.push(startOneCarousel('#como-carousel-cliente.c-slide', 3400));
+}
+
 function renderPlanes(planes){
 let cont=document.getElementById('plans-container');let badge=document.getElementById('promo-badge');
 if(!cont||!planes)return;cont.innerHTML='';
@@ -199,13 +211,16 @@ if(badge){badge.innerText=`⭐ 20% OFF - Promo Lanzamiento - ${usados}/${totalCu
 function renderPremium(arr){let c=document.getElementById('premium-container');let countEl=document.getElementById('locCount');if(countEl)countEl.innerText=arr.length?`${arr.length} premium`:'';if(!c)return;if(!arr.length){c.innerHTML='<p style="color:#888;font-size:11px">Aún no hay locales premium</p>';return}c.innerHTML='';arr.forEach(l=>{let img=l.logoUrl||l.galeria?.[0]||'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=300';c.innerHTML+=`<div style="background:#fff;color:#000;border-radius:10px;overflow:hidden"><img src="${img}" style="width:100%;height:80px;object-fit:cover"><div style="padding:6px"><strong>${l.nombre||'Local Premium'}</strong><br><small>${l.direccion||''}</small><br><button style="width:100%;padding:6px;margin-top:4px;background:#7c3aed;color:#fff;border:0;border-radius:8px;font-size:11px" onclick="location.href='./cliente.html?local=${l.id||l.celu}&src=landing'">Reservar</button></div></div>`})}
 function initRealtime(){
 db.doc('config/landing').onSnapshot(s=>{
-if(!s.exists)return;let d=s.data();
+if(!s.exists) return;
+let d=s.data();
 let mant=document.getElementById('mant');if(mant)mant.style.display=d.mantenimiento?'block':'none';
 if(d.heroTitle)document.getElementById('h-title').innerHTML=d.heroTitle;
 if(d.heroSub)document.getElementById('h-sub').innerText=d.heroSub;
-if(d.galeriaLocales&&d.galeriaLocales.length){let w=document.getElementById('wrap-locales');w.innerHTML='';d.galeriaLocales.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="slide ${i==0?'active':''}">`});initSliders()}
-if(d.galeriaClientes&&d.galeriaClientes.length){let w=document.getElementById('wrap-clientes');w.innerHTML='';d.galeriaClientes.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="slide ${i==0?'active':''}">`});initSliders()}
-if(d.galeriaComo&&d.galeriaComo.length){let w=document.getElementById('como-carousel');let ov=w.querySelector('.como-overlay');w.innerHTML='';d.galeriaComo.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="c-slide ${i==0?'active':''}">`});if(ov)w.appendChild(ov);initSliders()}
+let needRestart=false;
+if(d.galeriaLocales&&d.galeriaLocales.length){let w=document.getElementById('wrap-locales');w.innerHTML='';d.galeriaLocales.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="slide ${i==0?'active':''}">`}); needRestart=true;}
+if(d.galeriaClientes&&d.galeriaClientes.length){let w=document.getElementById('wrap-clientes');w.innerHTML='';d.galeriaClientes.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="slide ${i==0?'active':''}">`}); needRestart=true;}
+if(d.galeriaComo&&d.galeriaComo.length){let w=document.getElementById('como-carousel');let ov=w.querySelector('.como-overlay');w.innerHTML='';d.galeriaComo.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="c-slide ${i==0?'active':''}">`});if(ov)w.appendChild(ov); needRestart=true;}
+if(needRestart) initSliders();
 let boxCar=document.getElementById('como-full-carousel-box');let boxVid=document.getElementById('video-box-real');
 if(d.videoLocalUrl||d.videoClienteUrl){if(boxCar)boxCar.style.display='none';if(boxVid)boxVid.style.display='block';if(d.videoLocalUrl){let v=document.getElementById('video-local');if(v&&v.src!==d.videoLocalUrl){v.src=d.videoLocalUrl;v.load()}}if(d.videoClienteUrl){let v=document.getElementById('video-cliente');if(v&&v.src!==d.videoClienteUrl){v.src=d.videoClienteUrl;v.load()}}}else{if(boxCar)boxCar.style.display='flex';if(boxVid)boxVid.style.display='none'}
 });
@@ -213,7 +228,7 @@ db.doc('config/planes').onSnapshot(s=>{if(s.exists)renderPlanes(s.data())});
 db.doc('config/cobros').onSnapshot(s=>{if(!s.exists)return;let d=s.data();let wsp=document.getElementById('c-wsp');let email=document.getElementById('c-email');if(wsp&&d.whatsapp){wsp.innerText=d.whatsapp;wsp.href='https://wa.me/'+d.whatsapp.replace(/[^0-9]/g,'')}if(email&&d.email){email.innerText=d.email;email.href='mailto:'+d.email}let extra=document.getElementById('c-extra');if(extra&&d.alias)extra.innerHTML=`Alias: ${d.alias} | CBU: ${d.cbu||''}`;let csub=document.getElementById('c-sub');if(csub&&d.contactSub)csub.innerText=d.contactSub;let f=document.getElementById('f-text');if(f&&d.footer)f.innerText=d.footer});
 db.collection('config').where('plan','==','Premium').onSnapshot(ss=>{let arr=[];ss.forEach(doc=>{let d=doc.data();if(d.apareceEnLanding&&d.planActivo)arr.push({id:doc.id,...d})});renderPremium(arr)});
 }
-initSliders();initRealtime();
+document.addEventListener('DOMContentLoaded', ()=>{ initSliders(); initRealtime(); });
 </script>
 </body>
 </html>
