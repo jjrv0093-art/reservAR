@@ -182,10 +182,8 @@ storageBucket:"reservar-cb70d.appspot.com"
 firebase.initializeApp(firebaseConfig);
 const db=firebase.firestore();
 function redir(tipo,plan){
-let base=window.location.pathname;
-base=base.substring(0,base.lastIndexOf('/'));
 let archivo=tipo==='local'?'local.html':'cliente.html';
-let url=base+'/'+archivo;
+let url='./'+archivo;
 if(plan){ url+='?plan='+encodeURIComponent(plan); }
 window.location.href=url;
 }
@@ -284,9 +282,7 @@ return;
 c.innerHTML='';
 arr.forEach(l=>{
 let img=l.logoUrl||(l.galeria&&l.galeria[0])||'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=300';
-let base=window.location.pathname;
-base=base.substring(0,base.lastIndexOf('/'));
-c.innerHTML+='<div style="background:#fff;color:#000;border-radius:10px;overflow:hidden"><img src="'+img+'" style="width:100%;height:80px;object-fit:cover"><div style="padding:6px"><strong>'+(l.nombre||'Local')+'</strong><br><small>'+(l.direccion||'')+'</small><br><button style="width:100%;padding:6px;margin-top:4px;background:#7c3aed;color:#fff;border:0;border-radius:8px;font-size:11px" onclick="event.stopPropagation(); location.href=\''+base+'/cliente.html?local='+(l.id||l.celu)+'\'">Reservar</button></div></div>';
+c.innerHTML+='<div style="background:#fff;color:#000;border-radius:10px;overflow:hidden"><img src="'+img+'" style="width:100%;height:80px;object-fit:cover"><div style="padding:6px"><strong>'+(l.nombre||'Local')+'</strong><br><small>'+(l.direccion||'')+'</small><br><button style="width:100%;padding:6px;margin-top:4px;background:#7c3aed;color:#fff;border:0;border-radius:8px;font-size:11px" onclick="event.stopPropagation(); redir(\'cliente\')">Reservar</button></div></div>';
 });
 }
 function initRealtime(){
