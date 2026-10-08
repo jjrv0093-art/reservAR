@@ -46,7 +46,6 @@ nav{width:95%;max-width:1300px;margin:12px auto;padding:10px 14px;background:rgb
 <div style="text-align:center;padding:16px 0"><h2>Planes</h2><div style="background:#fde047;color:#422006;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:700;margin-top:8px;display:inline-block">⭐ 20% OFF - 38/50 cupos restantes - $100 tachado -> $50</div></div>
 <div id="plans-container" style="display:flex;gap:12px;flex-wrap:wrap;width:100%;justify-content:center"></div>
 </div>
-
 <div id="sec-contacto" class="sec">
 <div style="background:#1a1040;border-radius:18px;padding:18px;width:100%;text-align:center;margin-top:12px">
 <h2>Contacto</h2>
@@ -57,9 +56,7 @@ nav{width:95%;max-width:1300px;margin:12px auto;padding:10px 14px;background:rgb
 <p style="font-size:9px;color:#a78bfa;margin-top:10px">Alias y CBU solo visibles en panel ADM privado, nunca en landing</p>
 </div>
 </div>
-
 <footer id="f-text" style="text-align:center;padding:12px;font-size:9px;color:#a78bfa;margin:12px auto;width:95%;max-width:1300px"></footer>
-
 <div id="modalLogin" style="position:fixed;inset:0;background:rgba(5,2,15,.8);display:none;place-items:center;z-index:100" onclick="if(event.target==this)closeLogin()">
 <div style="background:#1a1040;padding:20px;border-radius:20px;width:95%;max-width:340px;text-align:center">
 <button style="width:100%;padding:12px;border-radius:12px;border:none;font-weight:800;background:#7c3aed;color:#fff;margin-bottom:8px" onclick="redir('local')">🏪 SOY LOCAL</button>
@@ -72,7 +69,6 @@ nav{width:95%;max-width:1300px;margin:12px auto;padding:10px 14px;background:rgb
 <script>
 const firebaseConfig={apiKey:"AIzaSyC57wshaJ2EuIBoBdXv18opL4u_Vuw2bAQ",authDomain:"reservar-cb70d.firebaseapp.com",projectId:"reservar-cb70d",storageBucket:"reservar-cb70d.appspot.com"};
 firebase.initializeApp(firebaseConfig); const db=firebase.firestore();
-
 // COORDINACION REAL - NO ROMPE EN /res/
 function redir(tipo,plan){
  const base='./'; const dest=tipo==='local'? base+'local.html' : base+'cliente.html';
@@ -87,7 +83,6 @@ function redirClienteConLocal(id){
 }
 function showTab(n){document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active')); document.getElementById('sec-'+n).classList.add('active');}
 function openLogin(){document.getElementById('modalLogin').style.display='grid'} function closeLogin(){document.getElementById('modalLogin').style.display='none'}
-
 // CARRUSELES ARREGLADOS - CON ESPACIO
 let iv1,iv2;
 function initSliders(){
@@ -98,7 +93,6 @@ function initSliders(){
  if(s1.length>1) iv1=setInterval(()=>{s1[i1].classList.remove('active'); i1=(i1+1)%s1.length; s1[i1].classList.add('active');},3000);
  if(s2.length>1) iv2=setInterval(()=>{s2[i2].classList.remove('active'); i2=(i2+1)%s2.length; s2[i2].classList.add('active');},3200);
 }
-
 // PLANES CON FALLBACK Y CUPO COMPARTIDO
 const CUPO_PROMO=38; const CUPO_TOTAL=50; const PRECIO_TACHADO=100; const PRECIO_PROMO=50;
 db.collection('config').doc('general').onSnapshot(d=>{
