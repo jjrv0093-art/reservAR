@@ -152,10 +152,10 @@ function showVideo(t){document.getElementById('vid-local').style.display=t==='lo
 let iv1=null,iv2=null,iv3=null,iv4=null;
 function initSliders(){
 if(iv1)clearInterval(iv1);if(iv2)clearInterval(iv2);if(iv3)clearInterval(iv3);if(iv4)clearInterval(iv4);
-const s1=document.querySelectorAll('#wrap-locales.slide');
-const s2=document.querySelectorAll('#wrap-clientes.slide');
-const s3=document.querySelectorAll('#como-carousel.c-slide');
-const s4=document.querySelectorAll('#como-carousel-cliente.c-slide');
+const s1=document.querySelectorAll('#wrap-locales .slide');
+const s2=document.querySelectorAll('#wrap-clientes .slide');
+const s3=document.querySelectorAll('#como-carousel .c-slide');
+const s4=document.querySelectorAll('#como-carousel-cliente .c-slide');
 let i1=0,i2=0,i3=0,i4=0;
 if(s1.length>1){iv1=setInterval(()=>{s1[i1].classList.remove('active');i1=(i1+1)%s1.length;s1[i1].classList.add('active')},2800)}
 if(s2.length>1){iv2=setInterval(()=>{s2[i2].classList.remove('active');i2=(i2+1)%s2.length;s2[i2].classList.add('active')},3000)}
