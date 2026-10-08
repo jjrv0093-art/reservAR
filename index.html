@@ -92,7 +92,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:10px 1
 <div class="step" style="background:#f5f3ff;color:#1e1b4b;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="width:28px;height:28px;background:#7c3aed;color:#fff;border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:13px;flex-shrink:0">2</div><div><h4 style="font-size:13px;font-weight:700">Compartí tu link</h4><p style="font-size:11px;opacity:0.7;margin-top:2px">Tus clientes reservan online.</p></div></div>
 <div class="step" style="background:#f5f3ff;color:#1e1b4b;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="width:28px;height:28px;background:#7c3aed;color:#fff;border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:13px;flex-shrink:0">3</div><div><h4 style="font-size:13px;font-weight:700">Recibí reservas seguras</h4><p style="font-size:11px;opacity:0.7;margin-top:2px">Sabés quién viene a tu local o a tu casa.</p></div></div>
 </div>
-<div id="como-full-carousel-box" style="width:100%;margin:14px 0 0;border-radius:14px;overflow:hidden;background:#fff">
+<div id="como-full-carousel-box" style="width:100%;margin:14px 0 0;border-radius:14px;overflow:hidden;background:transparent;display:flex;flex-direction:column;gap:12px">
 <div class="como-carousel" id="como-carousel">
 <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=600" class="c-slide active">
 <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=600" class="c-slide">
@@ -100,6 +100,15 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:10px 1
 <div class="como-overlay">
 <h4 style="font-size:14px;font-weight:800">Como se maneja la app local</h4>
 <p style="font-size:11px;margin-top:4px;opacity:0.9">✔ Panel simple<br>✔ Notificación al reservar<br>✔ Opción pedir DNI para seguridad</p>
+</div>
+</div>
+<div class="como-carousel" id="como-carousel-cliente">
+<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=600" class="c-slide active">
+<img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600" class="c-slide">
+<img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=600" class="c-slide">
+<div class="como-overlay">
+<h4 style="font-size:14px;font-weight:800">Como reserva el cliente</h4>
+<p style="font-size:11px;margin-top:4px;opacity:0.9">✔ Reserva en 3 pasos<br>✔ Recordatorio por WhatsApp<br>✔ Elegí tu barbero favorito</p>
 </div>
 </div>
 </div>
@@ -120,7 +129,7 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:10px 1
 </div>
 </div>
 <div id="sec-planes" class="sec">
-<div style="text-align:center;padding:16px 0 6px;width:100%"><h2 style="font-size:24px;font-weight:800">Planes y Precios</h2><p id="planes-sub" style="color:#b8a0ff;font-size:12px;margin-top:4px">Elegí el plan que mejor se adapta a tu negocio</p><div style="display:inline-flex;align-items:center;gap:6px;background:#fde047;color:#422006;padding:4px 10px;border-radius:20px;font-size:10px;font-weight:700;margin:10px auto">⭐ 20% OFF - Promo Lanzamiento</div></div>
+<div style="text-align:center;padding:16px 0 6px;width:100%"><h2 style="font-size:24px;font-weight:800">Planes y Precios</h2><p id="planes-sub" style="color:#b8a0ff;font-size:12px;margin-top:4px">Elegí el plan que mejor se adapta a tu negocio</p><div id="promo-badge" style="display:inline-flex;align-items:center;gap:6px;background:#fde047;color:#422006;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:800;margin:10px auto">⭐ 20% OFF - Promo Lanzamiento - 29/50 cupos</div></div>
 <div id="plans-container" style="display:flex;flex-direction:column;gap:12px;padding:0 0 16px;width:100%;justify-content:center;flex-wrap:wrap"></div>
 <p style="text-align:center;color:#888;font-size:10px">7 días gratis automático. 48hs gracia al vencer. Plan Casa sin vencimiento, por uso.</p>
 </div>
@@ -149,18 +158,45 @@ function showTab(n,el){document.querySelectorAll('.sec').forEach(s=>s.classList.
 function openLogin(){document.getElementById('modalLogin').style.display='grid'}
 function closeLogin(){document.getElementById('modalLogin').style.display='none'}
 function showVideo(t){document.getElementById('vid-local').style.display=t==='local'?'flex':'none';document.getElementById('vid-cliente').style.display=t==='cliente'?'flex':'none';document.getElementById('vt-local').style.background=t==='local'?'#fff':'rgba(255,255,255,0.08)';document.getElementById('vt-local').style.color=t==='local'?'#4f2bd9':'#fff';document.getElementById('vt-cliente').style.background=t==='cliente'?'#fff':'rgba(255,255,255,0.08)';document.getElementById('vt-cliente').style.color=t==='cliente'?'#4f2bd9':'#fff'}
-let iv1=null,iv2=null,iv3=null;
+let iv1=null,iv2=null,iv3=null,iv4=null;
 function initSliders(){
 let s1=document.querySelectorAll('#wrap-locales.slide');
 let s2=document.querySelectorAll('#wrap-clientes.slide');
 let s3=document.querySelectorAll('#como-carousel.c-slide');
-if(iv1)clearInterval(iv1);if(iv2)clearInterval(iv2);if(iv3)clearInterval(iv3);
-let i1=0,i2=0,i3=0;
+let s4=document.querySelectorAll('#como-carousel-cliente.c-slide');
+if(iv1)clearInterval(iv1);if(iv2)clearInterval(iv2);if(iv3)clearInterval(iv3);if(iv4)clearInterval(iv4);
+let i1=0,i2=0,i3=0,i4=0;
 if(s1.length>1){iv1=setInterval(()=>{s1[i1].classList.remove('active');i1=(i1+1)%s1.length;s1[i1].classList.add('active')},3000)}
 if(s2.length>1){iv2=setInterval(()=>{s2[i2].classList.remove('active');i2=(i2+1)%s2.length;s2[i2].classList.add('active')},3200)}
 if(s3.length>1){iv3=setInterval(()=>{s3[i3].classList.remove('active');i3=(i3+1)%s3.length;s3[i3].classList.add('active')},3000)}
+if(s4.length>1){iv4=setInterval(()=>{s4[i4].classList.remove('active');i4=(i4+1)%s4.length;s4[i4].classList.add('active')},3300)}
 }
-function renderPlanes(planes){let cont=document.getElementById('plans-container');if(!cont||!planes)return;cont.innerHTML='';let orden=['casa','base','medio','premium'];orden.forEach(k=>{let p=planes[k];if(!p)return;let isCasa=k==='casa';let pt=p.tachado||p.t||'';let pp=p.precio||p.p||p.promo||'';let lim=p.limite||p.cupos||0;let agot=p.restantes!==undefined&&p.restantes<=0;let rec=k==='medio';let bg=isCasa?'#f0fdf4':rec?'#2e1a8a':'#f5f3ff';let col=isCasa?'#1e1b4b':rec?'#fff':'#1e1b4b';let border=isCasa?'2px solid #22c55e':rec?'2px solid #fde047':'2px solid transparent';let html=`<div style="background:${bg};color:${col};border-radius:16px;padding:16px;text-align:center;position:relative;border:${border};flex:1;min-width:280px">${rec||isCasa?`<div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:${isCasa?'#22c55e':'#fde047'};color:${isCasa?'#fff':'#422006'};font-size:9px;font-weight:800;padding:3px 10px;border-radius:12px">${isCasa?'IDEAL CASA':'RECOMENDADO'}</div>`:''}<h3 style="font-size:15px;font-weight:700">${isCasa?'🏠 ':''}${k.toUpperCase()}</h3>${pt?`<div style="font-size:12px;text-decoration:line-through;opacity:0.6">$${pt}</div>`:''}<div style="font-size:30px;font-weight:800;margin:6px 0">$${pp}<small style="font-size:12px">${isCasa?' por reserva':'/mes'}</small></div><p style="font-size:11px;opacity:0.7;margin-bottom:10px">${isCasa?'Para los que trabajan desde su hogar':p.desc||''}</p><ul style="font-size:11px;text-align:left;list-style:none;margin:8px 0"><li>${isCasa?'Pago por uso, sin mes':`Hasta ${lim} reservas`}</li><li>Opción DNI opcional</li></ul><button style="width:100%;padding:9px;border-radius:10px;border:1.5px solid ${isCasa?'#22c55e':rec?'#fde047':'#6d28d9'};background:${isCasa?'#22c55e':rec?'#fde047':'#fff'};color:${isCasa?'#fff':rec?'#1e1b4b':'#6d28d9'};font-weight:700;font-size:12px;cursor:pointer" ${agot?'disabled':''} onclick="redir('local','${k}')">${agot?'AGOTADO':'Empezar'}</button></div>`;cont.innerHTML+=html})}
+function renderPlanes(planes){
+let cont=document.getElementById('plans-container');let badge=document.getElementById('promo-badge');
+if(!cont||!planes)return;cont.innerHTML='';
+let orden=['casa','base','medio','premium'];
+let totalCupos=50;let usados=29;
+orden.forEach(k=>{
+let p=planes[k];if(!p)return;
+let isCasa=k==='casa';
+let original=p.tachado||p.original||p.t||'';
+let promo=p.precio||p.promo||p.p||'';
+let limite=p.limite||p.cupos||50;
+let restantes=p.restantes;
+if(restantes!==undefined){let u=limite-restantes;if(u>0)usados=u;totalCupos=limite;}
+let agot=restantes!==undefined&&restantes<=0;
+let rec=k==='medio';
+let bg=isCasa?'#f0fdf4':rec?'#2e1a8a':'#f5f3ff';
+let col=isCasa?'#1e1b4b':rec?'#fff':'#1e1b4b';
+let border=isCasa?'2px solid #22c55e':rec?'2px solid #fde047':'2px solid transparent';
+let precioHTML='';
+if(original&&original!=promo){precioHTML=`<div style="font-size:12px;text-decoration:line-through;opacity:0.6;margin-top:4px">$${original}</div><div style="font-size:32px;font-weight:800;margin:2px 0">$${promo}<small style="font-size:12px;font-weight:600;opacity:0.7">/mes</small></div>`}
+else{precioHTML=`<div style="font-size:32px;font-weight:800;margin:6px 0">$${promo}<small style="font-size:12px;font-weight:600;opacity:0.7">/mes</small></div>`}
+let html=`<div style="background:${bg};color:${col};border-radius:16px;padding:16px;text-align:center;position:relative;border:${border};flex:1;min-width:280px">${rec||isCasa?`<div style="position:absolute;top:-9px;left:50%;transform:translateX(-50%);background:${isCasa?'#22c55e':'#fde047'};color:${isCasa?'#fff':'#422006'};font-size:9px;font-weight:800;padding:3px 10px;border-radius:12px">${isCasa?'IDEAL CASA':'RECOMENDADO'}</div>`:''}<h3 style="font-size:15px;font-weight:700;margin-top:6px">${isCasa?'🏠 ':''}${k.toUpperCase()}</h3>${precioHTML}<p style="font-size:11px;opacity:0.7;margin-bottom:8px">${p.desc||''}</p>${!isCasa?`<div style="font-size:10px;background:rgba(0,0,0,0.07);padding:4px 8px;border-radius:8px;display:inline-block;margin-bottom:8px">🔥 ${usados}/${totalCupos} cupos</div>`:''}<ul style="font-size:11px;text-align:left;list-style:none;margin:6px 0"><li>✔ Hasta ${limite} reservas</li><li>✔ Opción DNI</li></ul><button style="width:100%;padding:10px;border-radius:10px;border:1.5px solid ${isCasa?'#22c55e':rec?'#fde047':'#6d28d9'};background:${isCasa?'#22c55e':rec?'#fde047':'#fff'};color:${isCasa?'#fff':rec?'#1e1b4b':'#6d28d9'};font-weight:700;font-size:13px;cursor:pointer" ${agot?'disabled':''} onclick="redir('local','${k}')">${agot?'AGOTADO':'Contratar'}</button></div>`;
+cont.innerHTML+=html;
+});
+if(badge){badge.innerText=`⭐ 20% OFF - Promo Lanzamiento - ${usados}/${totalCupos} cupos`;badge.style.display='inline-flex'}
+}
 function renderPremium(arr){let c=document.getElementById('premium-container');let countEl=document.getElementById('locCount');if(countEl)countEl.innerText=arr.length?`${arr.length} premium`:'';if(!c)return;if(!arr.length){c.innerHTML='<p style="color:#888;font-size:11px">Aún no hay locales premium</p>';return}c.innerHTML='';arr.forEach(l=>{let img=l.logoUrl||l.galeria?.[0]||'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=300';c.innerHTML+=`<div style="background:#fff;color:#000;border-radius:10px;overflow:hidden"><img src="${img}" style="width:100%;height:80px;object-fit:cover"><div style="padding:6px"><strong>${l.nombre||'Local Premium'}</strong><br><small>${l.direccion||''}</small><br><button style="width:100%;padding:6px;margin-top:4px;background:#7c3aed;color:#fff;border:0;border-radius:8px;font-size:11px" onclick="location.href='./cliente.html?local=${l.id||l.celu}&src=landing'">Reservar</button></div></div>`})}
 function initRealtime(){
 db.doc('config/landing').onSnapshot(s=>{
@@ -170,9 +206,9 @@ if(d.heroTitle)document.getElementById('h-title').innerHTML=d.heroTitle;
 if(d.heroSub)document.getElementById('h-sub').innerText=d.heroSub;
 if(d.galeriaLocales&&d.galeriaLocales.length){let w=document.getElementById('wrap-locales');w.innerHTML='';d.galeriaLocales.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="slide ${i==0?'active':''}">`});initSliders()}
 if(d.galeriaClientes&&d.galeriaClientes.length){let w=document.getElementById('wrap-clientes');w.innerHTML='';d.galeriaClientes.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="slide ${i==0?'active':''}">`});initSliders()}
-if(d.galeriaComo&&d.galeriaComo.length){let w=document.getElementById('como-carousel');let existing=w.querySelector('.como-overlay');w.innerHTML='';d.galeriaComo.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="c-slide ${i==0?'active':''}">`});if(existing)w.appendChild(existing);initSliders()}
+if(d.galeriaComo&&d.galeriaComo.length){let w=document.getElementById('como-carousel');let ov=w.querySelector('.como-overlay');w.innerHTML='';d.galeriaComo.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="c-slide ${i==0?'active':''}">`});if(ov)w.appendChild(ov);initSliders()}
 let boxCar=document.getElementById('como-full-carousel-box');let boxVid=document.getElementById('video-box-real');
-if(d.videoLocalUrl||d.videoClienteUrl){if(boxCar)boxCar.style.display='none';if(boxVid)boxVid.style.display='block';if(d.videoLocalUrl){let v=document.getElementById('video-local');if(v&&v.src!==d.videoLocalUrl){v.src=d.videoLocalUrl;v.load()}}if(d.videoClienteUrl){let v=document.getElementById('video-cliente');if(v&&v.src!==d.videoClienteUrl){v.src=d.videoClienteUrl;v.load()}}}else{if(boxCar)boxCar.style.display='block';if(boxVid)boxVid.style.display='none'}
+if(d.videoLocalUrl||d.videoClienteUrl){if(boxCar)boxCar.style.display='none';if(boxVid)boxVid.style.display='block';if(d.videoLocalUrl){let v=document.getElementById('video-local');if(v&&v.src!==d.videoLocalUrl){v.src=d.videoLocalUrl;v.load()}}if(d.videoClienteUrl){let v=document.getElementById('video-cliente');if(v&&v.src!==d.videoClienteUrl){v.src=d.videoClienteUrl;v.load()}}}else{if(boxCar)boxCar.style.display='flex';if(boxVid)boxVid.style.display='none'}
 });
 db.doc('config/planes').onSnapshot(s=>{if(s.exists)renderPlanes(s.data())});
 db.doc('config/cobros').onSnapshot(s=>{if(!s.exists)return;let d=s.data();let wsp=document.getElementById('c-wsp');let email=document.getElementById('c-email');if(wsp&&d.whatsapp){wsp.innerText=d.whatsapp;wsp.href='https://wa.me/'+d.whatsapp.replace(/[^0-9]/g,'')}if(email&&d.email){email.innerText=d.email;email.href='mailto:'+d.email}let extra=document.getElementById('c-extra');if(extra&&d.alias)extra.innerHTML=`Alias: ${d.alias} | CBU: ${d.cbu||''}`;let csub=document.getElementById('c-sub');if(csub&&d.contactSub)csub.innerText=d.contactSub;let f=document.getElementById('f-text');if(f&&d.footer)f.innerText=d.footer});
