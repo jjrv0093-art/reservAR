@@ -166,7 +166,7 @@ cont.innerHTML='';
 let orden=['casa','base','medio','premium'];
 let totalCupos=50;
 let usados=29;
-let ventajas={casa:["Pago por uso, sin mensualidad","Ideal para trabajar en casa","Opcion pedir DNI","Link personalizado"],base:["Hasta 100 reservas/mes","Opcion pedir DNI para seguridad","Soporte por WhatsApp","Link personalizado","Notificaciones automaticas"],medio:["Hasta 300 reservas/mes","Opcion pedir DNI","Soporte prioritario","Recordatorios automaticos por WhatsApp","Panel completo"],premium:["Reservas ilimitadas 999999","Opcion pedir DNI","Soporte 24/7","Estadisticas avanzadas","Apareces destacado en la landing Premium"]};
+let ventajas={casa:["Pago por uso, sin mensualidad","Ideal para trabajar en casa","Opcion pedir DNI","Link personalizado"],base:["Hasta 100 reservas/mes","Opcion pedir DNI para seguridad","Soporte por WhatsApp","Link personalizado","Notificaciones automaticas"],medio:["Hasta 300 reservas/mes","Opcion pedir DNI","Soporte prioritario","Recordatorios automaticos por WhatsApp","Panel completo"],premium:["Reservas ilimitadas","Opcion pedir DNI","Soporte 24/7","Estadisticas avanzadas","Apareces destacado en la landing Premium"]};
 orden.forEach(k=>{
 let p=planes[k];if(!p)return;
 let isCasa=k==='casa';
@@ -210,25 +210,31 @@ let mant=document.getElementById('mant');
 if(mant)mant.style.display=d.mantenimiento?'block':'none';
 if(d.heroTitle)document.getElementById('h-title').innerHTML=d.heroTitle;
 if(d.heroSub)document.getElementById('h-sub').innerText=d.heroSub;
-if(d.galeriaLocales&&d.galeriaLocales.length){
+if(d.galeriaLocales&&d.galeriaLocales.length>0){
 let w=document.getElementById('wrap-locales');
+if(w && d.galeriaLocales[0] && d.galeriaLocales[0].startsWith('http')){
 w.innerHTML='';
 d.galeriaLocales.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="slide ${i==0?'active':''}">`});
 initSliders()
 }
-if(d.galeriaClientes&&d.galeriaClientes.length){
+}
+if(d.galeriaClientes&&d.galeriaClientes.length>0){
 let w=document.getElementById('wrap-clientes');
+if(w && d.galeriaClientes[0] && d.galeriaClientes[0].startsWith('http')){
 w.innerHTML='';
 d.galeriaClientes.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="slide ${i==0?'active':''}">`});
 initSliders()
 }
-if(d.galeriaComo&&d.galeriaComo.length){
+}
+if(d.galeriaComo&&d.galeriaComo.length>0){
 let w=document.getElementById('como-carousel');
+if(w && d.galeriaComo[0] && d.galeriaComo[0].startsWith('http')){
 let ov=w.querySelector('.como-overlay');
 w.innerHTML='';
 d.galeriaComo.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="c-slide ${i==0?'active':''}">`});
 if(ov)w.appendChild(ov);
 initSliders()
+}
 }
 let boxCar=document.getElementById('como-full-carousel-box');
 let boxVid=document.getElementById('video-box-real');
