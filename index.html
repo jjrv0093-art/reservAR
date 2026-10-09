@@ -49,7 +49,6 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:10px 1
 <div class="nav-links"><span id="tab-inicio" class="active" onclick="showTab('inicio',this)">Inicio</span><span id="tab-como" onclick="showTab('como',this)">Como Funciona</span><span id="tab-planes" onclick="showTab('planes',this)">Planes</span><span id="tab-contacto" onclick="showTab('contacto',this)">Contacto</span></div>
 <button class="btn-login" onclick="openLogin()">Iniciar sesión</button>
 </nav>
-
 <div id="sec-inicio" class="sec active">
 <div class="hero"><h1 id="h-title">reservAR</h1><p id="h-sub">tu lugar, tu momento.</p></div>
 <div class="cards">
@@ -77,7 +76,6 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:10px 1
 </div>
 <div id="premium-box" style="width:100%;margin:12px 0;background:rgba(40,20,70,0.4);border:1px solid rgba(140,100,255,0.15);border-radius:14px;padding:12px"><h3 style="font-size:13px">⭐ Locales Premium Destacados</h3><div id="premium-container" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;font-size:11px;color:#b8a0ff"></div></div>
 </div>
-
 <div id="sec-como" class="sec">
 <div class="como" style="background:rgba(40,20,70,0.4);border:1px solid rgba(140,100,255,0.15);border-radius:18px;padding:18px;width:100%;margin:12px auto;text-align:center">
 <h2 style="font-size:24px;font-weight:800;margin-bottom:4px">Como Funciona</h2>
@@ -108,28 +106,22 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:10px 1
 </div>
 </div>
 </div>
-
 <div id="sec-planes" class="sec">
 <div style="text-align:center;padding:16px 0 6px;width:100%"><h2 style="font-size:24px;font-weight:800">Planes y Precios</h2><p id="planes-sub" style="color:#b8a0ff;font-size:12px;margin-top:4px">Elegí el plan que mejor se adapta a tu negocio</p><div id="promo-badge" style="display:inline-flex;align-items:center;gap:6px;background:#fde047;color:#422006;padding:6px 14px;border-radius:20px;font-size:11px;font-weight:800;margin:10px auto">⭐ 20% OFF - Promo Lanzamiento - 29/50 cupos - TODO A $50</div></div>
 <div id="plans-container" style="display:flex;flex-direction:column;gap:12px;padding:0 0 16px;width:100%;justify-content:center;flex-wrap:wrap"></div>
 <p style="text-align:center;color:#888;font-size:10px">7 días gratis automático. 48hs gracia al vencer. Plan Casa sin vencimiento, por uso.</p>
 </div>
-
 <div id="sec-contacto" class="sec">
 <div style="background:linear-gradient(135deg,#1a1040,#2e1a8a);border:1px solid rgba(140,100,255,0.2);border-radius:18px;padding:18px;width:100%;margin:12px auto;text-align:center"><h2 style="font-size:20px;font-weight:800">Contacto</h2><p id="c-sub" style="color:#b8a0ff;font-size:12px;margin:6px 0 12px">Tu seguridad es nuestra prioridad</p><div style="display:flex;flex-direction:column;gap:8px;width:100%"><div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:10px;font-size:12px;display:flex;justify-content:space-between"><span>📱 WhatsApp</span><a id="c-wsp" href="#" style="color:#fde047;font-weight:700;text-decoration:none"></a></div><div style="background:rgba(255,255,255,0.08);border-radius:10px;padding:10px;font-size:12px;display:flex;justify-content:space-between"><span>✉️ Email</span><a id="c-email" href="#" style="color:#fde047;font-weight:700;text-decoration:none"></a></div><div id="c-extra" style="font-size:10px;color:#a78bfa;margin-top:6px"></div></div></div>
 </div>
-
 <footer id="f-text" style="text-align:center;padding:12px;font-size:9px;color:#a78bfa;background:rgba(40,20,70,0.6);margin:12px auto;border-radius:12px;width:95%;max-width:1300px"></footer>
-
 <div id="modalLogin" style="position:fixed;inset:0;background:rgba(5,2,15,0.8);backdrop-filter:blur(8px);display:none;place-items:center;z-index:100;padding:16px" onclick="if(event.target==this)closeLogin()"><div style="background:#1a1040;border:1px solid rgba(140,100,255,0.3);border-radius:20px;padding:20px;width:100%;max-width:340px;text-align:center"><h3 style="font-size:18px;font-weight:800;margin-bottom:6px">Bienvenido a reservAR</h3><p style="font-size:11px;color:#a78bfa;margin-bottom:14px">elegí como querés ingresar</p><button style="width:100%;padding:12px;border-radius:12px;border:none;font-weight:800;font-size:14px;margin-bottom:8px;cursor:pointer;background:#7c3aed;color:#fff" onclick="redir('local')">🏪 SOY LOCAL</button><button style="width:100%;padding:12px;border-radius:12px;border:none;font-weight:800;font-size:14px;margin-bottom:8px;cursor:pointer;background:#bfdbfe;color:#1e40af" onclick="redir('cliente')">👤 SOY CLIENTE</button><button style="width:100%;padding:8px;border-radius:12px;background:transparent;color:#a78bfa;border:1px solid rgba(255,255,255,0.15);font-size:11px;cursor:pointer" onclick="closeLogin()">Cerrar</button></div></div>
-
 <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore-compat.js"></script>
 <script>
 const firebaseConfig={apiKey:"AIzaSyC57wshaJ2EuIBoBdXv18opL4u_Vuw2bAQ",authDomain:"reservar-cb70d.firebaseapp.com",projectId:"reservar-cb70d",storageBucket:"reservar-cb70d.appspot.com"};
 http://firebase.initializeApp(firebaseConfig);
 const db=firebase.firestore();
-
 function redir(tipo,plan){
 var p=new URLSearchParams(window.location.search);
 var src=p.get('src')||'landing';
@@ -138,7 +130,6 @@ var url=dest+'?src='+src;
 if(plan)url+='&plan='+plan;
 http://window.location.href=url
 }
-
 function showTab(n,el){
 http://document.querySelectorAll('.sec').forEach(s=>s.classList.remove('active'));
 http://document.querySelectorAll('.nav-links span').forEach(s=>s.classList.remove('active'));
@@ -149,10 +140,8 @@ if(tab)tab.classList.add('active');
 else if(el)el.classList.add('active');
 http://window.scrollTo({top:0,behavior:'smooth'})
 }
-
 function openLogin(){document.getElementById('modalLogin').style.display='grid'}
 function closeLogin(){document.getElementById('modalLogin').style.display='none'}
-
 function showVideo(t){
 http://document.getElementById('vid-local').style.display=t==='local'?'flex':'none';
 http://document.getElementById('vid-cliente').style.display=t==='cliente'?'flex':'none';
@@ -161,7 +150,6 @@ http://document.getElementById('vt-local').style.color=t==='local'?'#4f2bd9':'#f
 http://document.getElementById('vt-cliente').style.background=t==='cliente'?'#fff':'rgba(255,255,255,0.08)';
 http://document.getElementById('vt-cliente').style.color=t==='cliente'?'#4f2bd9':'#fff'
 }
-
 let iv1=null,iv2=null,iv3=null,iv4=null;
 function initSliders(){
 if(iv1)clearInterval(iv1);if(iv2)clearInterval(iv2);if(iv3)clearInterval(iv3);if(iv4)clearInterval(iv4);
@@ -175,7 +163,6 @@ if(s2.length>1){iv2=setInterval(()=>{s2[i2].classList.remove('active');i2=(i2+1)
 if(s3.length>1){iv3=setInterval(()=>{s3[i3].classList.remove('active');i3=(i3+1)%s3.length;s3[i3].classList.add('active')},3200)}
 if(s4.length>1){iv4=setInterval(()=>{s4[i4].classList.remove('active');i4=(i4+1)%s4.length;s4[i4].classList.add('active')},3400)}
 }
-
 function renderPlanes(planes){
 let cont=document.getElementById('plans-container');
 let badge=document.getElementById('promo-badge');
@@ -208,7 +195,6 @@ http://cont.innerHTML+=html;
 });
 if(badge){badge.innerText=`⭐ 20% OFF - Promo Lanzamiento - ${usados}/${totalCupos} cupos - TODO A $50`;badge.style.display='inline-flex'}
 }[k]
-
 function renderPremium(arr){
 let c=document.getElementById('premium-container');
 let countEl=document.getElementById('locCount');
@@ -221,7 +207,6 @@ let img=l.logoUrl||l.galeria?.[0]||'https://images.unsplash.com/photo-1503951914
 http://c.innerHTML+=`<div style="background:#fff;color:#000;border-radius:10px;overflow:hidden"><img src="${img}" style="width:100%;height:80px;object-fit:cover"><div style="padding:6px"><strong>${l.nombre||'Local Premium'}</strong><br><small>${l.direccion||''}</small><br><button style="width:100%;padding:6px;margin-top:4px;background:#7c3aed;color:#fff;border:0;border-radius:8px;font-size:11px" onclick="location.href='cliente.html?local=${l.id||l.celu}&src=landing'">Reservar</button></div></div>`
 })
 }
-
 function initRealtime(){
 http://db.doc('config/landing').onSnapshot(s=>{
 if(!s.exists)return;
