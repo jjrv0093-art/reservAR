@@ -35,10 +35,10 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:10px 1
 .checks{list-style:none;display:flex;flex-direction:column;gap:5px;font-size:12px}
 .checks li::before{content:"✔";display:inline-grid;place-items:center;width:16px;height:16px;background:#22c55e;color:#fff;border-radius:50%;font-size:9px;margin-right:7px}
 .mantenimiento{background:#ff0040;color:#fff;text-align:center;padding:8px 12px;font-weight:800;font-size:12px;width:95%;max-width:1300px;margin:0 auto 8px;border-radius:10px;display:none}
-.como-carousel{width:100%;height:520px;border-radius:14px;overflow:hidden;position:relative;background:#000;border:1px solid rgba(140,100,255,0.2)}
-.como-carousel.c-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;opacity:0;transition:opacity.6s ease}
+.como-carousel{width:100%;height:260px;border-radius:14px;overflow:hidden;position:relative;background:#000}
+.como-carousel.c-slide{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;opacity:0;transition:opacity.6s ease}
 .como-carousel.c-slide.active{opacity:1}
-.como-overlay{position:absolute;bottom:0;left:0;right:0;padding:12px;background:linear-gradient(transparent,rgba(0,0,0,0.9));color:#fff;z-index:2}
+.como-overlay{position:absolute;bottom:0;left:0;right:0;padding:12px;background:linear-gradient(transparent,rgba(0,0,0,0.85));color:#fff;z-index:2}
 </style>
 </head>
 <body>
@@ -77,20 +77,30 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:10px 1
 <div id="sec-como" class="sec">
 <div class="como" style="background:rgba(40,20,70,0.4);border:1px solid rgba(140,100,255,0.15);border-radius:18px;padding:18px;width:100%;margin:12px auto;text-align:center">
 <h2 style="font-size:24px;font-weight:800;margin-bottom:4px">Como Funciona</h2>
-<p style="color:#b8a0ff;font-size:12px;margin-bottom:12px">Panel real con demos genéricas</p>
-<div id="como-full-carousel-box" style="width:100%;margin:14px 0 0;display:flex;flex-direction:column;gap:12px">
+<p style="color:#b8a0ff;font-size:12px;margin-bottom:12px">Seguridad ante todo, vos tenés el control</p>
+<div class="steps" style="display:flex;flex-direction:column;gap:10px;text-align:left;width:100%">
+<div class="step" style="background:#f5f3ff;color:#1e1b4b;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="width:28px;height:28px;background:#7c3aed;color:#fff;border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:13px;flex-shrink:0">1</div><div><h4 style="font-size:13px;font-weight:700">Creá tu local</h4><p style="font-size:11px;opacity:0.7">Registrá tu barbería o tu espacio en casa.</p></div></div>
+<div class="step" style="background:#f5f3ff;color:#1e1b4b;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="width:28px;height:28px;background:#7c3aed;color:#fff;border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:13px;flex-shrink:0">2</div><div><h4 style="font-size:13px;font-weight:700">Compartí tu link</h4><p style="font-size:11px;opacity:0.7">Tus clientes reservan online.</p></div></div>
+<div class="step" style="background:#f5f3ff;color:#1e1b4b;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="width:28px;height:28px;background:#7c3aed;color:#fff;border-radius:7px;display:grid;place-items:center;font-weight:800;font-size:13px;flex-shrink:0">3</div><div><h4 style="font-size:13px;font-weight:700">Recibí reservas seguras</h4><p style="font-size:11px;opacity:0.7">Sabés quién viene a tu local o a tu casa.</p></div></div>
+</div>
+<div id="como-full-carousel-box" style="width:100%;margin:14px 0 0;border-radius:14px;overflow:hidden;background:transparent;display:flex;flex-direction:column;gap:12px">
 <div class="como-carousel" id="como-carousel">
 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600" class="c-slide active">
 <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=600" class="c-slide">
 <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=600" class="c-slide">
-<div class="como-overlay"><h4 style="font-size:14px;font-weight:800">Como se maneja la app local</h4><p style="font-size:11px;margin-top:4px;opacity:0.9">✔ Panel simple<br>✔ Notificación al reservar<br>✔ Opción pedir DNI</p></div>
+<div class="como-overlay"><h4 style="font-size:14px;font-weight:800">Como se maneja la app local</h4><p style="font-size:11px;margin-top:4px;opacity:0.9">✔ Panel simple<br>✔ Notificación al reservar<br>✔ Opción pedir DNI para seguridad</p></div>
 </div>
 <div class="como-carousel" id="como-carousel-cliente">
 <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=600" class="c-slide active">
 <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?q=80&w=600" class="c-slide">
-<img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?q=80&w=600" class="c-slide">
-<div class="como-overlay"><h4 style="font-size:14px;font-weight:800">Estudio de Uñas</h4><p style="font-size:11px;margin-top:4px;opacity:0.9">✔ Reserva en 3 pasos<br>✔ Recordatorio por WhatsApp<br>✔ Elegí tu servicio de uñas favorito</p></div>
+<img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=600" class="c-slide">
+<div class="como-overlay"><h4 style="font-size:14px;font-weight:800">Estudio de Uñas - Como reserva el cliente</h4><p style="font-size:11px;margin-top:4px;opacity:0.9">✔ Reserva en 3 pasos<br>✔ Recordatorio por WhatsApp<br>✔ Elegí tu servicio de uñas favorito</p></div>
 </div>
+</div>
+<div id="video-box-real" style="display:none;width:100%;margin-top:14px">
+<div style="display:flex;gap:8px;justify-content:center;margin:0 0 10px"><button id="vt-local" style="padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.2);background:#fff;color:#4f2bd9;font-size:11px;font-weight:700;cursor:pointer" onclick="showVideo('local')">📱 Video Local</button><button id="vt-cliente" style="padding:6px 14px;border-radius:20px;border:1px solid rgba(255,255,255,0.2);background:rgba(255,255,255,0.08);color:#fff;font-size:11px;font-weight:700;cursor:pointer" onclick="showVideo('cliente')">👤 Video Cliente</button></div>
+<div id="vid-local" style="width:100%;background:#f5f3ff;border-radius:14px;padding:10px;display:flex;gap:10px;align-items:center"><div style="width:110px;height:190px;background:#0c061a;border-radius:14px;border:3px solid #2e1a8a;flex-shrink:0;overflow:hidden"><video id="video-local" playsinline muted loop controls style="width:100%;height:100%;object-fit:cover"></video></div><div style="text-align:left;color:#1e1b4b;flex:1"><h4 style="font-size:13px;font-weight:800">Como se maneja la app local</h4><p style="font-size:11px;opacity:0.7;margin:4px 0 6px">Mira el funcionamiento real.</p><div style="font-size:11px;font-weight:600">✔️ Panel simple</div><div style="font-size:11px;font-weight:600">✔️ Notificación al reservar</div></div></div>
+<div id="vid-cliente" style="width:100%;background:#f5f3ff;border-radius:14px;padding:10px;display:flex;gap:10px;align-items:center;display:none"><div style="width:110px;height:190px;background:#0c061a;border-radius:14px;border:3px solid #60a5fa;flex-shrink:0;overflow:hidden"><video id="video-cliente" playsinline muted loop controls style="width:100%;height:100%;object-fit:cover"></video></div><div style="text-align:left;color:#1e1b4b;flex:1"><h4 style="font-size:13px;font-weight:800">Como reserva el cliente</h4><p style="font-size:11px;opacity:0.7;margin:4px 0 6px">Reserva en 20 segundos.</p><div style="font-size:11px;font-weight:600">✔️ Reserva en 3 pasos</div><div style="font-size:11px;font-weight:600">✔️ Recordatorio por WhatsApp</div></div></div>
 </div>
 </div>
 </div>
@@ -127,6 +137,14 @@ if(tab)tab.classList.add('active');
 else if(el)el.classList.add('active');
 window.scrollTo({top:0,behavior:'smooth'});
 }
+function showVideo(t){
+document.getElementById('vid-local').style.display=t==='local'?'flex':'none';
+document.getElementById('vid-cliente').style.display=t==='cliente'?'flex':'none';
+document.getElementById('vt-local').style.background=t==='local'?'#fff':'rgba(255,255,255,0.08)';
+document.getElementById('vt-local').style.color=t==='local'?'#4f2bd9':'#fff';
+document.getElementById('vt-cliente').style.background=t==='cliente'?'#fff':'rgba(255,255,255,0.08)';
+document.getElementById('vt-cliente').style.color=t==='cliente'?'#4f2bd9':'#fff';
+}
 let iv1=null,iv2=null,iv3=null,iv4=null;
 function initSliders(){
 if(iv1)clearInterval(iv1);if(iv2)clearInterval(iv2);if(iv3)clearInterval(iv3);if(iv4)clearInterval(iv4);
@@ -135,10 +153,10 @@ const s2=document.querySelectorAll('#wrap-clientes.slide');
 const s3=document.querySelectorAll('#como-carousel.c-slide');
 const s4=document.querySelectorAll('#como-carousel-cliente.c-slide');
 let i1=0,i2=0,i3=0,i4=0;
-if(s1.length>1){iv1=setInterval(()=>{s1[i1].classList.remove('active');i1=(i1+1)%s1.length;s1[i1].classList.add('active');},2800)}
-if(s2.length>1){iv2=setInterval(()=>{s2[i2].classList.remove('active');i2=(i2+1)%s2.length;s2[i2].classList.add('active');},3000)}
-if(s3.length>1){iv3=setInterval(()=>{s3[i3].classList.remove('active');i3=(i3+1)%s3.length;s3[i3].classList.add('active');},3200)}
-if(s4.length>1){iv4=setInterval(()=>{s4[i4].classList.remove('active');i4=(i4+1)%s4.length;s4[i4].classList.add('active');},3400)}
+if(s1.length>1){iv1=setInterval(()=>{s1[i1].classList.remove('active');i1=(i1+1)%s1.length;s1[i1].classList.add('active')},2800)}
+if(s2.length>1){iv2=setInterval(()=>{s2[i2].classList.remove('active');i2=(i2+1)%s2.length;s2[i2].classList.add('active')},3000)}
+if(s3.length>1){iv3=setInterval(()=>{s3[i3].classList.remove('active');i3=(i3+1)%s3.length;s3[i3].classList.add('active')},3200)}
+if(s4.length>1){iv4=setInterval(()=>{s4[i4].classList.remove('active');i4=(i4+1)%s4.length;s4[i4].classList.add('active')},3400)}
 }
 function renderPlanes(planes){
 let cont=document.getElementById('plans-container');
@@ -148,7 +166,7 @@ cont.innerHTML='';
 let orden=['casa','base','medio','premium'];
 let totalCupos=50;
 let usados=29;
-let ventajas={casa:["Pago por uso, sin mensualidad","Ideal para trabajar en casa","Opcion pedir DNI","Link personalizado"],base:["Hasta 100 reservas/mes","Opcion pedir DNI para seguridad","Soporte por WhatsApp","Link personalizado","Notificaciones automaticas"],medio:["Hasta 300 reservas/mes","Opcion pedir DNI","Soporte prioritario","Recordatorios automaticos por WhatsApp","Panel completo"],premium:["Reservas ilimitadas","Opcion pedir DNI","Soporte 24/7","Estadisticas avanzadas","Apareces destacado en la landing Premium"]};
+let ventajas={casa:["Pago por uso, sin mensualidad","Ideal para trabajar en casa","Opcion pedir DNI","Link personalizado"],base:["Hasta 100 reservas/mes","Opcion pedir DNI para seguridad","Soporte por WhatsApp","Link personalizado","Notificaciones automaticas"],medio:["Hasta 300 reservas/mes","Opcion pedir DNI","Soporte prioritario","Recordatorios automaticos por WhatsApp","Panel completo"],premium:["Reservas ilimitadas 999999","Opcion pedir DNI","Soporte 24/7","Estadisticas avanzadas","Apareces destacado en la landing Premium"]};
 orden.forEach(k=>{
 let p=planes[k];if(!p)return;
 let isCasa=k==='casa';
@@ -190,6 +208,39 @@ if(!s.exists)return;
 let d=s.data();
 let mant=document.getElementById('mant');
 if(mant)mant.style.display=d.mantenimiento?'block':'none';
+if(d.heroTitle)document.getElementById('h-title').innerHTML=d.heroTitle;
+if(d.heroSub)document.getElementById('h-sub').innerText=d.heroSub;
+if(d.galeriaLocales&&d.galeriaLocales.length){
+let w=document.getElementById('wrap-locales');
+w.innerHTML='';
+d.galeriaLocales.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="slide ${i==0?'active':''}">`});
+initSliders()
+}
+if(d.galeriaClientes&&d.galeriaClientes.length){
+let w=document.getElementById('wrap-clientes');
+w.innerHTML='';
+d.galeriaClientes.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="slide ${i==0?'active':''}">`});
+initSliders()
+}
+if(d.galeriaComo&&d.galeriaComo.length){
+let w=document.getElementById('como-carousel');
+let ov=w.querySelector('.como-overlay');
+w.innerHTML='';
+d.galeriaComo.forEach((u,i)=>{w.innerHTML+=`<img src="${u}" class="c-slide ${i==0?'active':''}">`});
+if(ov)w.appendChild(ov);
+initSliders()
+}
+let boxCar=document.getElementById('como-full-carousel-box');
+let boxVid=document.getElementById('video-box-real');
+if(d.videoLocalUrl||d.videoClienteUrl){
+if(boxCar)boxCar.style.display='none';
+if(boxVid)boxVid.style.display='block';
+if(d.videoLocalUrl){let v=document.getElementById('video-local');if(v&&v.src!==d.videoLocalUrl){v.src=d.videoLocalUrl;v.load()}}
+if(d.videoClienteUrl){let v=document.getElementById('video-cliente');if(v&&v.src!==d.videoClienteUrl){v.src=d.videoClienteUrl;v.load()}}
+}else{
+if(boxCar)boxCar.style.display='flex';
+if(boxVid)boxVid.style.display='none'
+}
 });
 db.doc('config/planes').onSnapshot(s=>{if(s.exists)renderPlanes(s.data())});
 db.doc('config/cobros').onSnapshot(s=>{
@@ -199,6 +250,12 @@ let wsp=document.getElementById('c-wsp');
 let email=document.getElementById('c-email');
 if(wsp&&d.whatsapp){wsp.innerText=d.whatsapp;wsp.href='https://wa.me/'+d.whatsapp.replace(/[^0-9]/g,'')}
 if(email&&d.email){email.innerText=d.email;email.href='mailto:'+d.email}
+let extra=document.getElementById('c-extra');
+if(extra&&d.alias)extra.innerHTML=`Alias: ${d.alias} | CBU: ${d.cbu||''}`;
+let csub=document.getElementById('c-sub');
+if(csub&&d.contactSub)csub.innerText=d.contactSub;
+let f=document.getElementById('f-text');
+if(f&&d.footer)f.innerText=d.footer
 });
 db.collection('config').where('plan','==','Premium').onSnapshot(ss=>{
 let arr=[];
